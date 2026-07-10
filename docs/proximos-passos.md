@@ -2,11 +2,9 @@
 
 ## Prioridade alta
 
-- Rever se `iPistolL` deve ser item inicial. Se for so para teste, mudar `PlayerStartsWithItem` para `False` no AGS Editor.
-- Corrigir o aviso `sofa_MouseMove` em falta.
 - Corrigir ou padronizar acentos nos scripts, porque alguns textos aparecem com mojibake.
-- Dar nome/descricao final a `iPartitura`; atualmente esta como `New inventory item`.
 - Testar do inicio ao fim o puzzle da partitura sem itens de debug.
+- Confirmar no AGS Editor se a grelha de inventario `72x80` fica confortavel com mais itens.
 
 ## Conteudo a desenhar
 
@@ -18,7 +16,6 @@
 
 ## Melhorias de jogo
 
-- Evitar que o jogador fique com solucao antes de descobrir o puzzle, caso `iPistolL` seja removido dos itens iniciais.
 - Adicionar feedback quando o jogador tenta usar a pistola descarregada no desenho.
 - Adicionar feedback quando tenta usar Nerfs sem pistola ou pistola sem Nerfs.
 - Criar uma pequena recompensa/estado depois de apanhar a partitura.

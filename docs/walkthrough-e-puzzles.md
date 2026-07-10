@@ -8,11 +8,10 @@ Gabriel comeca na sala 1, o quarto.
 
 Itens que o jogador comeca a ter, segundo `Game.agf`:
 
-- `iPistolL`: Pistola Nerf carregada.
 - `iOboe`: Oboe.
 - `iKey`: Key.
 
-Nota: apesar de existirem scripts para carregar a pistola juntando `iPistol` com `iNerfs`, neste momento `iPistolL` tambem esta marcado como item inicial. Isto pode ser intencional para testes, mas convem rever antes de fechar o puzzle.
+`iPistolL` nao e item inicial; o jogador precisa encontrar a pistola descarregada e os Nerfs para a carregar.
 
 ## Objetos e hotspots principais
 
@@ -81,9 +80,7 @@ O script liga `cRoger_Talk` a `dDialog1.Start()`. Roger tambem tem `UseInv`, que
 
 ## Coisas a rever no puzzle
 
-- Decidir se Gabriel deve comecar com `iPistolL`; se nao, mudar para `False` para obrigar o jogador a encontrar pistola e Nerfs.
-- Dar uma descricao final a `iPartitura`, que ainda aparece como `New inventory item`.
-- Confirmar nomes e eventos do hotspot do sofa: existe aviso sobre `sofa_MouseMove` em falta.
+- Confirmar no AGS Editor se a grelha de inventario `72x80` continua confortavel quando houver mais itens.
 - Decidir para que serve `iOboeR` depois de combinado.
 - Decidir para que serve `iKey`.
 

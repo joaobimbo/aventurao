@@ -94,13 +94,7 @@ No script, ha referencias em maiusculas geradas pelo AGS:
 
 ## Avisos atuais
 
-`warnings.log` contem:
-
-```text
-Game : (room:1) WARNING: event script function 'sofa_MouseMove' not found (Room 1)
-```
-
-Existe `hSofa_MouseMove` em `room1.asc`, mas o evento configurado parece procurar `sofa_MouseMove`. Solucao provavel: alinhar o nome do evento no AGS Editor ou criar uma funcao `sofa_MouseMove(Hotspot *theHotspot)`.
+Sem avisos conhecidos no `warnings.log` rastreado. Se o AGS voltar a avisar sobre eventos em falta, confirme se o nome configurado no editor corresponde a uma funcao no script da sala.
 
 ## Notas de codificacao
 
