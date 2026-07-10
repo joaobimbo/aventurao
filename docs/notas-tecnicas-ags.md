@@ -86,15 +86,24 @@ Uso atual:
 - `VIEW1`: view default inicial.
 - `View_wg`: view normal de Gabriel usada depois da animacao de disparo.
 - `nerfshoot`: animacao de Gabriel a disparar Nerf.
+- `OboePractice`: animacao de Gabriel a tocar oboe, com sprites 51-77.
 
 No script, ha referencias em maiusculas geradas pelo AGS:
 
 - `NERFSHOOT`
 - `VIEW_WG`
 
+## Estados de puzzle da sala 1
+
+- `partitura_on_tripe` vive em `room1.asc` e indica se a partitura ja foi colocada no tripe.
+- `gabriel_practiced_oboe` vive em `GlobalScript.asc` e indica se a primeira pratica ja aconteceu.
+- Usar `iPartitura` em `hTripe`/`oObject0` prepara o tripe, mas nao toca a animacao.
+- Usar `iOboeR` em `hTripe`/`oObject0` toca a animacao. Na primeira vez altera `gabriel_practiced_oboe`; depois disso repete sem mudar a historia.
+- A cama usa `player.ChangeRoom(2, 400, 300)` para iniciar a Room 2 perto do centro.
+
 ## Avisos atuais
 
-Sem avisos conhecidos no `warnings.log` rastreado. Se o AGS voltar a avisar sobre eventos em falta, confirme se o nome configurado no editor corresponde a uma funcao no script da sala.
+O `warnings.log` pode avisar que `sofa_PickUp` nao foi encontrado na Room 1. Se isto reaparecer, confirmar no AGS Editor se o evento Pick up do sofa aponta para o script/module certo, ou remover esse evento.
 
 ## Notas de codificacao
 

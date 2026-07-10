@@ -670,6 +670,10 @@
             <Description IsNull="True" />
             <Number>1</Number>
           </UnloadedRoom>
+          <UnloadedRoom>
+            <Description IsNull="True" />
+            <Number>2</Number>
+          </UnloadedRoom>
         </UnloadedRooms>
       </UnloadedRoomFolder>
     </Rooms>
@@ -841,7 +845,7 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>18</Height>
+                <Height>19</Height>
                 <ID>0</ID>
                 <Image>2160</Image>
                 <Left>16</Left>
@@ -859,7 +863,7 @@
                 <Top>36</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
-                <Width>75</Width>
+                <Width>71</Width>
                 <WrapText>False</WrapText>
                 <ZOrder>0</ZOrder>
               </GUIButton>
@@ -869,7 +873,7 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>36</Height>
+                <Height>56</Height>
                 <ID>1</ID>
                 <Image>2162</Image>
                 <Left>142</Left>
@@ -887,7 +891,7 @@
                 <Top>36</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
-                <Width>166</Width>
+                <Width>177</Width>
                 <WrapText>False</WrapText>
                 <ZOrder>1</ZOrder>
               </GUIButton>
@@ -1091,7 +1095,7 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>21</Height>
+                <Height>19</Height>
                 <ID>1</ID>
                 <Image>2160</Image>
                 <Left>179</Left>
@@ -1109,7 +1113,7 @@
                 <Top>53</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
-                <Width>78</Width>
+                <Width>71</Width>
                 <WrapText>False</WrapText>
                 <ZOrder>1</ZOrder>
               </GUIButton>
@@ -1119,7 +1123,7 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>20</Height>
+                <Height>19</Height>
                 <ID>2</ID>
                 <Image>2160</Image>
                 <Left>179</Left>
@@ -1137,7 +1141,7 @@
                 <Top>105</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
-                <Width>74</Width>
+                <Width>71</Width>
                 <WrapText>False</WrapText>
                 <ZOrder>2</ZOrder>
               </GUIButton>
@@ -1229,7 +1233,7 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>56</Height>
+                <Height>19</Height>
                 <ID>2</ID>
                 <Image>2160</Image>
                 <Left>457</Left>
@@ -1247,7 +1251,7 @@
                 <Top>246</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
-                <Width>177</Width>
+                <Width>71</Width>
                 <WrapText>False</WrapText>
                 <ZOrder>2</ZOrder>
               </GUIButton>
@@ -1334,7 +1338,7 @@
           <GUIMain>
             <NormalGUI>
               <BackgroundColor>0</BackgroundColor>
-              <BackgroundImage>2167</BackgroundImage>
+              <BackgroundImage>0</BackgroundImage>
               <BorderColor>0</BorderColor>
               <Clickable>True</Clickable>
               <Height>470</Height>
@@ -1535,14 +1539,14 @@
                 <Font>0</Font>
                 <Height>56</Height>
                 <ID>7</ID>
-                <Image>2160</Image>
+                <Image>2162</Image>
                 <Left>20</Left>
                 <Locked>False</Locked>
                 <MouseoverImage>2162</MouseoverImage>
                 <Name>btnDefault</Name>
                 <NewModeNumber>0</NewModeNumber>
                 <OnClick>btnDefault_OnClick</OnClick>
-                <PushedImage>2161</PushedImage>
+                <PushedImage>2163</PushedImage>
                 <Text>Default</Text>
                 <TextAlignment>MiddleCenter</TextAlignment>
                 <TextColor>19248</TextColor>
@@ -1661,7 +1665,7 @@
                 <Top>216</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
-                <Width>262</Width>
+                <Width>177</Width>
                 <WrapText>False</WrapText>
                 <ZOrder>12</ZOrder>
               </GUIButton>
@@ -1809,14 +1813,14 @@
                 <Font>0</Font>
                 <Height>56</Height>
                 <ID>2</ID>
-                <Image>2160</Image>
+                <Image>2162</Image>
                 <Left>307</Left>
                 <Locked>False</Locked>
                 <MouseoverImage>2162</MouseoverImage>
                 <Name>btnRestartNo</Name>
                 <NewModeNumber>0</NewModeNumber>
                 <OnClick>close_gui_onclick</OnClick>
-                <PushedImage>2161</PushedImage>
+                <PushedImage>2163</PushedImage>
                 <Text>No</Text>
                 <TextAlignment>MiddleCenter</TextAlignment>
                 <TextColor>19248</TextColor>
@@ -3879,13 +3883,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2162" Width="105" Height="19" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2162" Width="177" Height="56" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Defaults/UI/buttom_large_normal.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>19</ImportHeight>
-                      <ImportWidth>105</ImportWidth>
+                      <ImportHeight>56</ImportHeight>
+                      <ImportWidth>177</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -3895,13 +3899,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2163" Width="105" Height="19" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2163" Width="177" Height="56" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Defaults/UI/button_large_pressed.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>19</ImportHeight>
-                      <ImportWidth>105</ImportWidth>
+                      <ImportHeight>56</ImportHeight>
+                      <ImportWidth>177</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5196,6 +5200,870 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
+                  <Sprite Slot="51" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>33</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="52" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>198</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="53" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>363</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="54" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>528</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="55" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>693</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="56" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>858</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="57" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1023</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="58" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1188</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="59" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1353</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="60" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>33</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="61" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>198</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="62" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>363</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="63" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>528</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="64" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>693</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="65" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>858</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="66" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1023</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="67" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1188</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="68" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1353</OffsetX>
+                      <OffsetY>265</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="69" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>33</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="70" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>198</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="71" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>363</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="72" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>528</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="73" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>693</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="74" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>858</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="75" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1023</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="76" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1188</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="77" Width="165" Height="265" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>1353</OffsetX>
+                      <OffsetY>530</OffsetY>
+                      <ImportHeight>265</ImportHeight>
+                      <ImportWidth>165</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="79" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>25</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="81" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>133</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="82" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>241</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="83" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>349</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="84" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>457</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="85" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>565</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="86" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>673</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="87" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>781</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="88" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>889</OffsetX>
+                      <OffsetY>9</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="89" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>25</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="90" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>133</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="91" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>241</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="92" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>349</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="93" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>457</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="94" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>565</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="95" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>673</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="96" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>781</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="97" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>889</OffsetX>
+                      <OffsetY>184</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="98" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>25</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="99" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>133</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="100" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>241</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="101" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>349</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="102" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>457</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="103" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>565</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="104" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>673</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="105" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>781</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="106" Width="93" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Characters/char1_music_anim.png</FileName>
+                      <OffsetX>889</OffsetX>
+                      <OffsetY>359</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>93</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
                 </Sprites>
               </SpriteFolder>
             </SubFolders>
@@ -5372,6 +6240,38 @@ stop
                   <ImportHeight>52</ImportHeight>
                   <ImportWidth>50</ImportWidth>
                   <ImportAsTile>True</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>TopLeft</ImportMethod>
+                  <TransparentColorIndex>0</TransparentColorIndex>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="78" Width="81" Height="106" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>Sprites/Defaults/tripe.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>106</ImportHeight>
+                  <ImportWidth>81</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>TopLeft</ImportMethod>
+                  <TransparentColorIndex>0</TransparentColorIndex>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="80" Width="81" Height="106" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>Sprites/Defaults/tripe2.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>106</ImportHeight>
+                  <ImportWidth>81</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
                   <Frame>0</Frame>
                   <RemapToGamePalette>True</RemapToGamePalette>
                   <RemapToRoomPalette>False</RemapToRoomPalette>
@@ -5848,6 +6748,193 @@ stop
                     <Flipped>False</Flipped>
                     <ID>3</ID>
                     <Image>19</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                </Frames>
+              </Loop>
+            </Loops>
+          </View>
+          <View>
+            <ID>4</ID>
+            <Name>OboePractice</Name>
+            <Loops>
+              <Loop>
+                <ID>0</ID>
+                <RunNextLoop>False</RunNextLoop>
+                <Frames>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>0</ID>
+                    <Image>82</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>1</ID>
+                    <Image>83</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>2</ID>
+                    <Image>84</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>3</ID>
+                    <Image>85</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>4</ID>
+                    <Image>86</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>5</ID>
+                    <Image>87</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>6</ID>
+                    <Image>88</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>7</ID>
+                    <Image>89</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>8</ID>
+                    <Image>90</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>9</ID>
+                    <Image>91</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>10</ID>
+                    <Image>92</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>11</ID>
+                    <Image>93</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>12</ID>
+                    <Image>94</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>13</ID>
+                    <Image>95</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>14</ID>
+                    <Image>96</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>15</ID>
+                    <Image>97</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>16</ID>
+                    <Image>98</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>17</ID>
+                    <Image>99</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>18</ID>
+                    <Image>100</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>19</ID>
+                    <Image>101</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>20</ID>
+                    <Image>102</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>21</ID>
+                    <Image>103</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>22</ID>
+                    <Image>104</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>23</ID>
+                    <Image>105</Image>
+                    <Sound>0</Sound>
+                  </ViewFrame>
+                  <ViewFrame>
+                    <Delay>0</Delay>
+                    <Flipped>False</Flipped>
+                    <ID>24</ID>
+                    <Image>106</Image>
                     <Sound>0</Sound>
                   </ViewFrame>
                 </Frames>

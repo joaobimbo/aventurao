@@ -5,6 +5,8 @@
 #define VERBCOIN_DEFAULT_BORDER_COLOR 19248
 #define VERBCOIN_DEFAULT_BORDER_WIDTH 1
 
+import bool HandleRoomOneSpecialClick(int x, int y, CursorMode mode);
+
 #ifdef SCRIPT_API_v3507
 #define SCREEN_WIDTH Screen.Width
 #define SCREEN_HEIGHT Screen.Height
