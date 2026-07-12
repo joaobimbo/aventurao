@@ -1,1 +1,1 @@
-Game : (room:1) [GlobalScript.asc:0] WARNING: event script function 'sofa_PickUp' not found (Room 1)
+Game : (room:1) [room1.asc:340] Wait() was used in "Before Fadein" event; use "After Fadein" instead

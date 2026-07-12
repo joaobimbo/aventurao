@@ -2472,8 +2472,8 @@
             <SpeechColor>6840</SpeechColor>
             <SpeechView>0</SpeechView>
             <StartX>300</StartX>
-            <StartY>550</StartY>
-            <StartingRoom>3</StartingRoom>
+            <StartY>500</StartY>
+            <StartingRoom>1</StartingRoom>
             <ThinkingView>0</ThinkingView>
             <TurnBeforeWalking>True</TurnBeforeWalking>
             <TurnWhenFacing>True</TurnWhenFacing>
@@ -2580,6 +2580,50 @@
               <Event Index="7" />
             </Interactions>
           </Character>
+          <Character>
+            <AdjustSpeedWithScaling>False</AdjustSpeedWithScaling>
+            <AdjustVolumeWithScaling>False</AdjustVolumeWithScaling>
+            <AnimationDelay>4</AnimationDelay>
+            <BlinkingView>0</BlinkingView>
+            <Clickable>True</Clickable>
+            <DiagonalLoops>True</DiagonalLoops>
+            <ID>4</ID>
+            <IdleAnimationDelay>4</IdleAnimationDelay>
+            <IdleDelay>20</IdleDelay>
+            <IdleView>0</IdleView>
+            <MovementLinkedToAnimation>True</MovementLinkedToAnimation>
+            <MovementSpeed>3</MovementSpeed>
+            <MovementSpeedX>0</MovementSpeedX>
+            <MovementSpeedY>0</MovementSpeedY>
+            <NormalView>1</NormalView>
+            <Properties />
+            <RealName xml:space="preserve">New character</RealName>
+            <ScriptName>cVania</ScriptName>
+            <Solid>True</Solid>
+            <SpeechAnimationDelay>5</SpeechAnimationDelay>
+            <SpeechColor>12</SpeechColor>
+            <SpeechView>0</SpeechView>
+            <StartX>160</StartX>
+            <StartY>120</StartY>
+            <StartingRoom>2</StartingRoom>
+            <ThinkingView>0</ThinkingView>
+            <TurnBeforeWalking>True</TurnBeforeWalking>
+            <TurnWhenFacing>True</TurnWhenFacing>
+            <UniformMovementSpeed>True</UniformMovementSpeed>
+            <UseRoomAreaLighting>True</UseRoomAreaLighting>
+            <UseRoomAreaScaling>True</UseRoomAreaScaling>
+            <Interactions>
+              <ScriptModule>GlobalScript.asc</ScriptModule>
+              <Event Index="0" />
+              <Event Index="1" />
+              <Event Index="2" />
+              <Event Index="3" />
+              <Event Index="4" />
+              <Event Index="5" />
+              <Event Index="6" />
+              <Event Index="7" />
+            </Interactions>
+          </Character>
         </Characters>
       </CharacterFolder>
     </Characters>
@@ -2652,6 +2696,12 @@ praxistas: Estamos tradicionalmente parados.
 return
 @4
 stop
+@5
+player: Mas este mes nem acaba em -eiro.
+praxistas: No calendario da tradicao, todos os meses acabam quando nos mandamos.
+player: E quando e que comecam?
+praxistas: Isso esta no regulamento do proximo ano.
+return
 ]]></Script>
             <DialogOptions>
               <DialogOption>
@@ -2678,6 +2728,12 @@ stop
                 <Show>True</Show>
                 <Text>Tchau.</Text>
               </DialogOption>
+              <DialogOption>
+                <ID>5</ID>
+                <Say>False</Say>
+                <Show>True</Show>
+                <Text xml:space="preserve">Mas este mes nem acaba em -eiro.</Text>
+              </DialogOption>
             </DialogOptions>
           </Dialog>
           <Dialog>
@@ -2695,6 +2751,11 @@ option-off 6
 option-off 7
 option-off 8
 option-off 9
+option-off 10
+option-off 11
+option-off 12
+option-off 13
+option-off 14
 return
 @1
 praxistas: Boa tarde? So isso?
@@ -2733,23 +2794,59 @@ option-off 6
 option-on 7
 option-on 8
 option-on 9
+option-on 10
 return
 @7
-praxistas: Forca. Explique.
-player: Eu... deixei os diagramas no meu gabinete imaginario.
-praxistas: Imaginario?
-player: A renda e excelente.
+praxistas: Tres rebucados?
+praxistas: O Codigo da Praxe nao aceita pagamentos em gomas desde o incidente de 2019.
+player: Eu estava a testar-vos.
+praxistas: Teste chumbado.
 stop
 @8
-praxistas: Uma piada?
-praxistas: Entao e humor de caloiro. O pior tipo, logo depois de trocadilhos de professores.
+praxistas: Confiscar as capas todas?
+praxistas: Um Doutor verdadeiro saberia que depois tinhamos de preencher o formulario das capas nuas.
+player: Ha um formulario para isso?
+praxistas: Apanhado.
 stop
 @9
+praxistas: ...artigo 47-B?
+player: Querem que confirme a infracao no Conselho dos Doutores?
+praxistas: Nao! Nao e preciso incomodar o Conselho!
+option-off 7
+option-off 8
+option-off 9
+option-off 10
+option-on 11
+option-on 12
+option-on 13
+option-on 14
+return
+@11
+praxistas: Entregar os sapatos ao Reitor?
+praxistas: Isso e so as tercas-feiras com chuva.
+player: Claro. Estava a verificar o vosso calendario.
+stop
+@12
+praxistas: Marcha do caranguejo?
+praxistas: Outra vez o Codigo dos Piratas.
+player: Os codigos deviam usar capas de cores diferentes.
+stop
+@13
 praxistas: Eu disse que havia qualquer coisa!
 praxistas: Foi o Tiago que me ensinou!
 praxistas: O Tiago aprendeu em Economia!
 praxistas: ...nao sabia que isso era importante.
 run-script 20
+stop
+@10
+praxistas: Proibidos de piscar?
+praxistas: Isso e do Codigo dos Piratas, capitulo do mau-olhado.
+player: Estava quase.
+stop
+@14
+praxistas: Pedir desculpa a estatua?
+praxistas: Essa regra foi revogada quando a estatua respondeu.
+player: Justo.
 stop
 ]]></Script>
             <DialogOptions>
@@ -2793,19 +2890,49 @@ stop
                 <ID>7</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">Posso explicar exatamente o problema.</Text>
+                <Text xml:space="preserve">Artigo 12: capas tortas dao multa de tres rebucados.</Text>
               </DialogOption>
               <DialogOption>
                 <ID>8</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">Calma. Era so uma piada.</Text>
+                <Text xml:space="preserve">Regulamento secreto: entreguem-me as capas para confisco.</Text>
               </DialogOption>
               <DialogOption>
                 <ID>9</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">Esquecam. Nao devia ter dito nada.</Text>
+                <Text xml:space="preserve">Codigo da Praxe, artigo 47-B: dobra obsoleta. Reaprendizagem imediata.</Text>
+              </DialogOption>
+              <DialogOption>
+                <ID>10</ID>
+                <Say>True</Say>
+                <Show>True</Show>
+                <Text xml:space="preserve">Artigo final: ficam proibidos de piscar ate segunda ordem.</Text>
+              </DialogOption>
+              <DialogOption>
+                <ID>11</ID>
+                <Say>True</Say>
+                <Show>True</Show>
+                <Text xml:space="preserve">Sancao 8-A: entreguem os sapatos ao Reitor.</Text>
+              </DialogOption>
+              <DialogOption>
+                <ID>12</ID>
+                <Say>True</Say>
+                <Show>True</Show>
+                <Text xml:space="preserve">Sancao 2-P: marcha do caranguejo ate ao Mondego.</Text>
+              </DialogOption>
+              <DialogOption>
+                <ID>13</ID>
+                <Say>True</Say>
+                <Show>True</Show>
+                <Text xml:space="preserve">Sancao 3-C: reaprendizagem coletiva fora do perimetro. Imediatamente.</Text>
+              </DialogOption>
+              <DialogOption>
+                <ID>14</ID>
+                <Say>True</Say>
+                <Show>True</Show>
+                <Text xml:space="preserve">Sancao 1-E: pecam desculpa formal a estatua da entrada.</Text>
               </DialogOption>
             </DialogOptions>
           </Dialog>
