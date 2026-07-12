@@ -4,3 +4,5 @@
 // scripts.
 
 import bool gabriel_practiced_oboe;
+import int praxe_state;
+import int praxistas_dialog_result;
