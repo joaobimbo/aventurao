@@ -1,5 +1,15 @@
 # Walkthrough e puzzles
 
+## Room 4 - O Exame Impossivel
+
+Configuracao detalhada: ver `docs/Room4.md`.
+
+Gabriel encontra o Pai, Luis, a corrigir o ultimo exame. Recupera um rascunho
+com uma regua e fita-cola, encontra a pagina 47 da grelha, prepara uma suspensao
+inofensiva com agua e po de demonstracao e usa-a para decifrar a resposta. No
+fim, encontra as chaves debaixo da pilha de exames e segue com o Pai para o
+Room 5.
+
 Este documento descreve o que ja existe na primeira sala e como os puzzles estao ligados.
 
 ## Estado inicial conhecido
