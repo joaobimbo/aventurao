@@ -3420,27 +3420,24 @@ stop
             <ID>5</ID>
             <Name>dEscolherBolo</Name>
             <ShowTextParser>False</ShowTextParser>
-            <Script><![CDATA[// Escolher um dos cinco bolos
+            <Script><![CDATA[// Atribuir os cinco bolos sem feedback intermedio
 @S
+run-script 95
 return
 @1
-cPasteleiro: Nao. Essa atribuicao contradiz a ordem relativa de duas encomendas.
-player: Volto a grelha. Os bolos continuam a recusar dar o nome.
+run-script 100
 return
 @2
-cPasteleiro: Nao. O quadrado entra em conflito com uma das exclusoes do livro.
-player: Volto a grelha. Os bolos continuam a recusar dar o nome.
+run-script 101
 return
 @3
-cPasteleiro: Nao. A pista sobre quem esta entre dois bolos elimina essa hipotese.
-player: Volto a grelha. Os bolos continuam a recusar dar o nome.
+run-script 102
 return
 @4
-run-script 94
+run-script 103
 return
 @5
-cPasteleiro: Nao. A pista do chocolate negro impede essa conclusao.
-player: Volto a grelha. Os bolos continuam a recusar dar o nome.
+run-script 104
 return
 @6
 stop
@@ -3450,37 +3447,37 @@ stop
                 <ID>1</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">O bolo A, redondo e de futebol.</Text>
+                <Text>Gabriel.</Text>
               </DialogOption>
               <DialogOption>
                 <ID>2</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">O bolo B, quadrado e com flores.</Text>
+                <Text>Mariana.</Text>
               </DialogOption>
               <DialogOption>
                 <ID>3</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">O bolo C, retangular e com cerejas.</Text>
+                <Text>Patricia.</Text>
               </DialogOption>
               <DialogOption>
                 <ID>4</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">O bolo D, hexagonal e com estrelas.</Text>
+                <Text>Rita.</Text>
               </DialogOption>
               <DialogOption>
                 <ID>5</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">O bolo E, oval e com um oboe.</Text>
+                <Text>Tiago.</Text>
               </DialogOption>
               <DialogOption>
                 <ID>6</ID>
                 <Say>True</Say>
                 <Show>True</Show>
-                <Text xml:space="preserve">Ainda preciso de examinar as pistas.</Text>
+                <Text xml:space="preserve">Interromper e voltar ao livro.</Text>
               </DialogOption>
             </DialogOptions>
           </Dialog>
