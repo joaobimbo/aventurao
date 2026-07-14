@@ -86,21 +86,24 @@ Uso atual:
 - `VIEW1`: view default inicial.
 - `View_wg`: view normal de Gabriel usada depois da animacao de disparo.
 - `nerfshoot`: animacao de Gabriel a disparar Nerf.
+- `OboePractice`: animacao de Gabriel a tocar oboe, com sprites 51-77.
 
 No script, ha referencias em maiusculas geradas pelo AGS:
 
 - `NERFSHOOT`
 - `VIEW_WG`
 
+## Estados de puzzle da sala 1
+
+- `partitura_on_tripe` vive em `room1.asc` e indica se a partitura ja foi colocada no tripe.
+- `gabriel_practiced_oboe` vive em `GlobalScript.asc` e indica se a primeira pratica ja aconteceu.
+- Usar `iPartitura` em `hTripe`/`oObject0` prepara o tripe, mas nao toca a animacao.
+- Usar `iOboeR` em `hTripe`/`oObject0` toca a animacao. Na primeira vez altera `gabriel_practiced_oboe`; depois disso repete sem mudar a historia.
+- A cama usa `player.ChangeRoom(2, 400, 300)` para iniciar a Room 2 perto do centro.
+
 ## Avisos atuais
 
-`warnings.log` contem:
-
-```text
-Game : (room:1) WARNING: event script function 'sofa_MouseMove' not found (Room 1)
-```
-
-Existe `hSofa_MouseMove` em `room1.asc`, mas o evento configurado parece procurar `sofa_MouseMove`. Solucao provavel: alinhar o nome do evento no AGS Editor ou criar uma funcao `sofa_MouseMove(Hotspot *theHotspot)`.
+O `warnings.log` pode avisar que `sofa_PickUp` nao foi encontrado na Room 1. Se isto reaparecer, confirmar no AGS Editor se o evento Pick up do sofa aponta para o script/module certo, ou remover esse evento.
 
 ## Notas de codificacao
 

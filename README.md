@@ -27,5 +27,5 @@ O jogo acompanha Gabriel, 9 anos, num dia que devia ser normal mas deixa rapidam
 - Estilo de fala: LucasArts.
 - Primeira sala: quarto de Gabriel.
 - Interface principal: verb coin com `Olhar`, `Falar`, `Usar` e `Pegar`.
-- Puzzle principal implementado: preparar/usar a pistola de Nerfs para fazer cair a partitura.
+- Puzzle principal implementado: preparar/usar a pistola de Nerfs para fazer cair a partitura, por a partitura no tripe e praticar oboe antes de dormir.
 

@@ -1,5 +1,15 @@
 # Walkthrough e puzzles
 
+## Room 4 - O Exame Impossivel
+
+Configuracao detalhada: ver `docs/Room4.md`.
+
+Gabriel encontra o Pai, Luis, a corrigir o ultimo exame. Recupera um rascunho
+com uma regua e fita-cola, encontra a pagina 47 da grelha, prepara uma suspensao
+inofensiva com agua e po de demonstracao e usa-a para decifrar a resposta. No
+fim, encontra as chaves debaixo da pilha de exames e segue com o Pai para o
+Room 5.
+
 Este documento descreve o que ja existe na primeira sala e como os puzzles estao ligados.
 
 ## Estado inicial conhecido
@@ -8,11 +18,10 @@ Gabriel comeca na sala 1, o quarto.
 
 Itens que o jogador comeca a ter, segundo `Game.agf`:
 
-- `iPistolL`: Pistola Nerf carregada.
 - `iOboe`: Oboe.
 - `iKey`: Key.
 
-Nota: apesar de existirem scripts para carregar a pistola juntando `iPistol` com `iNerfs`, neste momento `iPistolL` tambem esta marcado como item inicial. Isto pode ser intencional para testes, mas convem rever antes de fechar o puzzle.
+`iPistolL` nao e item inicial; o jogador precisa encontrar a pistola descarregada e os Nerfs para a carregar.
 
 ## Objetos e hotspots principais
 
@@ -67,6 +76,35 @@ Objetivo atual: fazer cair a partitura para a conseguir apanhar.
 
 Se o jogador tentar apanhar a partitura antes de estar `Pickable`, Gabriel diz que esta muito alto e nao chega la.
 
+## Puzzle de praticar oboe
+
+Objetivo atual: cumprir a ordem da mae antes de Gabriel poder ir dormir.
+
+Pre-condicoes:
+
+- Gabriel tem `iOboeR` depois de combinar `iOboe` com `iReed`.
+- Gabriel tem `iPartitura` depois de fazer cair e apanhar a partitura.
+
+Fluxo:
+
+1. Usar `iPartitura` no tripe (`hTripe` ou objeto `oObject0`).
+2. O script `PutPartituraOnTripe()` remove `iPartitura` do inventario.
+3. O estado `partitura_on_tripe` passa para `true`.
+4. `oObject0.Graphic` passa para o sprite 80, mostrando o tripe com a folha.
+5. Gabriel ainda nao toca neste momento.
+6. Usar `iOboeR` no tripe/partitura preparada.
+7. O script `PracticeOboe(true)` toca a animacao `OboePractice` na primeira vez.
+8. `gabriel_practiced_oboe` passa para `true`.
+9. A partir desse estado, a cama deixa Gabriel ir para a Room 2.
+
+Depois da primeira pratica, usar novamente `iOboeR` no tripe chama `PracticeOboe(false)`: Gabriel volta a tocar a animacao e comenta, mas a historia nao avanca nem altera novo estado.
+
+## Transicao para Room 2
+
+Depois de `gabriel_practiced_oboe == true`, interagir com a cama chama `player.ChangeRoom(2, 400, 300)`.
+
+Isto faz Gabriel entrar na Room 2 perto do centro da sala.
+
 ## Dialogo com Roger
 
 Roger (`cRoger`) esta na sala 1 e tem dialogo `dDialog1`.
@@ -81,9 +119,7 @@ O script liga `cRoger_Talk` a `dDialog1.Start()`. Roger tambem tem `UseInv`, que
 
 ## Coisas a rever no puzzle
 
-- Decidir se Gabriel deve comecar com `iPistolL`; se nao, mudar para `False` para obrigar o jogador a encontrar pistola e Nerfs.
-- Dar uma descricao final a `iPartitura`, que ainda aparece como `New inventory item`.
-- Confirmar nomes e eventos do hotspot do sofa: existe aviso sobre `sofa_MouseMove` em falta.
-- Decidir para que serve `iOboeR` depois de combinado.
+- Confirmar no AGS Editor se a grelha de inventario `72x80` continua confortavel quando houver mais itens.
+- Testar visualmente se o tripe com folha fica bem alinhado quando `oObject0.Graphic = 80`.
 - Decidir para que serve `iKey`.
 

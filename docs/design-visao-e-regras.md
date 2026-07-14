@@ -55,7 +55,10 @@ Exemplos ja implementados:
 - O quarto tem hotspots/objetos como desenho, luz, porta, cama, sofa, caneca, Nerfs, pistola e partitura.
 - A partitura esta alta/inacessivel no inicio.
 - A pistola de Nerfs e usada para atingir o desenho/area alta e fazer cair a partitura.
-- O oboe e a palheta ja existem como linha paralela de puzzle/inventario.
+- O oboe e a palheta sao combinados para criar `Oboe com palheta`.
+- A mae impede Gabriel de acabar a noite enquanto ele nao praticar oboe.
+- A pratica exige dois passos: por a partitura no tripe e depois usar o oboe com palheta nessa partitura.
+- A primeira pratica desbloqueia a cama/Room 2; praticas seguintes podem repetir a animacao sem alterar a historia.
 - O jogo tem musica `adventure_theme.mid` e fundo `quarto_bg.jpg`.
 
 ## Linguagem de Gabriel
