@@ -15,7 +15,7 @@
       <AudioIndexer>1</AudioIndexer>
       <AutoMoveInWalkMode>True</AutoMoveInWalkMode>
       <BackwardsText>False</BackwardsText>
-      <BuildTargets>Windows</BuildTargets>
+      <BuildTargets xml:space="preserve">Windows, Linux, Web</BuildTargets>
       <ClipGUIControls>True</ClipGUIControls>
       <ColorDepth>TrueColor</ColorDepth>
       <CompressSpritesType>Deflate</CompressSpritesType>
@@ -681,6 +681,10 @@
           <UnloadedRoom>
             <Description IsNull="True" />
             <Number>4</Number>
+          </UnloadedRoom>
+          <UnloadedRoom>
+            <Description IsNull="True" />
+            <Number>5</Number>
           </UnloadedRoom>
           <UnloadedRoom>
             <Description xml:space="preserve">Entrada da Pastelaria</Description>
@@ -2714,7 +2718,7 @@
             <SpeechView>0</SpeechView>
             <StartX>750</StartX>
             <StartY>300</StartY>
-            <StartingRoom>7</StartingRoom>
+            <StartingRoom>1</StartingRoom>
             <ThinkingView>0</ThinkingView>
             <TurnBeforeWalking>True</TurnBeforeWalking>
             <TurnWhenFacing>True</TurnWhenFacing>
@@ -2755,7 +2759,7 @@
             <Solid>True</Solid>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>12</SpeechColor>
-            <SpeechView>6</SpeechView>
+            <SpeechView>8</SpeechView>
             <StartX>600</StartX>
             <StartY>550</StartY>
             <StartingRoom>3</StartingRoom>
@@ -2932,9 +2936,9 @@
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>12</SpeechColor>
             <SpeechView>11</SpeechView>
-            <StartX>650</StartX>
-            <StartY>455</StartY>
-            <StartingRoom>-1</StartingRoom>
+            <StartX>550</StartX>
+            <StartY>520</StartY>
+            <StartingRoom>6</StartingRoom>
             <ThinkingView>0</ThinkingView>
             <TurnBeforeWalking>True</TurnBeforeWalking>
             <TurnWhenFacing>True</TurnWhenFacing>
@@ -8168,22 +8172,6 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="122" Width="76" Height="220" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                    <Source>
-                      <FileName>Sprites/Room3/funcionaria_idle.png</FileName>
-                      <OffsetX>0</OffsetX>
-                      <OffsetY>0</OffsetY>
-                      <ImportHeight>220</ImportHeight>
-                      <ImportWidth>76</ImportWidth>
-                      <ImportAsTile>False</ImportAsTile>
-                      <Frame>0</Frame>
-                      <RemapToGamePalette>True</RemapToGamePalette>
-                      <RemapToRoomPalette>False</RemapToRoomPalette>
-                      <ImportMethod>TopLeft</ImportMethod>
-                      <TransparentColorIndex>0</TransparentColorIndex>
-                      <ImportAlphaChannel>True</ImportAlphaChannel>
-                    </Source>
-                  </Sprite>
                   <Sprite Slot="150" Width="450" Height="500" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Room3/PraxistasSaida/praxistas_saida_transparent.png</FileName>
@@ -11298,70 +11286,6 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="122" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                    <Source>
-                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
-                      <OffsetX>0</OffsetX>
-                      <OffsetY>0</OffsetY>
-                      <ImportHeight>160</ImportHeight>
-                      <ImportWidth>100</ImportWidth>
-                      <ImportAsTile>True</ImportAsTile>
-                      <Frame>0</Frame>
-                      <RemapToGamePalette>True</RemapToGamePalette>
-                      <RemapToRoomPalette>False</RemapToRoomPalette>
-                      <ImportMethod>TopLeft</ImportMethod>
-                      <TransparentColorIndex>0</TransparentColorIndex>
-                      <ImportAlphaChannel>True</ImportAlphaChannel>
-                    </Source>
-                  </Sprite>
-                  <Sprite Slot="126" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                    <Source>
-                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
-                      <OffsetX>100</OffsetX>
-                      <OffsetY>0</OffsetY>
-                      <ImportHeight>160</ImportHeight>
-                      <ImportWidth>100</ImportWidth>
-                      <ImportAsTile>True</ImportAsTile>
-                      <Frame>0</Frame>
-                      <RemapToGamePalette>True</RemapToGamePalette>
-                      <RemapToRoomPalette>False</RemapToRoomPalette>
-                      <ImportMethod>TopLeft</ImportMethod>
-                      <TransparentColorIndex>0</TransparentColorIndex>
-                      <ImportAlphaChannel>True</ImportAlphaChannel>
-                    </Source>
-                  </Sprite>
-                  <Sprite Slot="127" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                    <Source>
-                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
-                      <OffsetX>200</OffsetX>
-                      <OffsetY>0</OffsetY>
-                      <ImportHeight>160</ImportHeight>
-                      <ImportWidth>100</ImportWidth>
-                      <ImportAsTile>True</ImportAsTile>
-                      <Frame>0</Frame>
-                      <RemapToGamePalette>True</RemapToGamePalette>
-                      <RemapToRoomPalette>False</RemapToRoomPalette>
-                      <ImportMethod>TopLeft</ImportMethod>
-                      <TransparentColorIndex>0</TransparentColorIndex>
-                      <ImportAlphaChannel>True</ImportAlphaChannel>
-                    </Source>
-                  </Sprite>
-                  <Sprite Slot="128" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                    <Source>
-                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
-                      <OffsetX>300</OffsetX>
-                      <OffsetY>0</OffsetY>
-                      <ImportHeight>160</ImportHeight>
-                      <ImportWidth>100</ImportWidth>
-                      <ImportAsTile>True</ImportAsTile>
-                      <Frame>0</Frame>
-                      <RemapToGamePalette>True</RemapToGamePalette>
-                      <RemapToRoomPalette>False</RemapToRoomPalette>
-                      <ImportMethod>TopLeft</ImportMethod>
-                      <TransparentColorIndex>0</TransparentColorIndex>
-                      <ImportAlphaChannel>True</ImportAlphaChannel>
-                    </Source>
-                  </Sprite>
                   <Sprite Slot="352" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
@@ -11682,58 +11606,106 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
+                  <Sprite Slot="386" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
+                      <OffsetX>0</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>100</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="387" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
+                      <OffsetX>100</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>100</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="388" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
+                      <OffsetX>200</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>100</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="389" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
+                      <OffsetX>300</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>100</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="390" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
+                      <OffsetX>400</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>100</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="391" Width="100" Height="160" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                    <Source>
+                      <FileName>Sprites/Room6/Characters/gabriel_ajudante_walk_6x4.png</FileName>
+                      <OffsetX>500</OffsetX>
+                      <OffsetY>0</OffsetY>
+                      <ImportHeight>160</ImportHeight>
+                      <ImportWidth>100</ImportWidth>
+                      <ImportAsTile>True</ImportAsTile>
+                      <Frame>0</Frame>
+                      <RemapToGamePalette>True</RemapToGamePalette>
+                      <RemapToRoomPalette>False</RemapToRoomPalette>
+                      <ImportMethod>TopLeft</ImportMethod>
+                      <TransparentColorIndex>0</TransparentColorIndex>
+                      <ImportAlphaChannel>True</ImportAlphaChannel>
+                    </Source>
+                  </Sprite>
                 </Sprites>
               </SpriteFolder>
             </SubFolders>
             <Sprites>
-              <Sprite Slot="126" Width="395" Height="734" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                <Source>
-                  <FileName>Sprites/Room3/Funcionaria/TrocarSaco/trocar_saco_transparent.png</FileName>
-                  <OffsetX>0</OffsetX>
-                  <OffsetY>0</OffsetY>
-                  <ImportHeight>734</ImportHeight>
-                  <ImportWidth>395</ImportWidth>
-                  <ImportAsTile>True</ImportAsTile>
-                  <Frame>0</Frame>
-                  <RemapToGamePalette>True</RemapToGamePalette>
-                  <RemapToRoomPalette>False</RemapToRoomPalette>
-                  <ImportMethod>TopLeft</ImportMethod>
-                  <TransparentColorIndex>0</TransparentColorIndex>
-                  <ImportAlphaChannel>True</ImportAlphaChannel>
-                </Source>
-              </Sprite>
-              <Sprite Slot="127" Width="395" Height="734" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                <Source>
-                  <FileName>Sprites/Room3/Funcionaria/TrocarSaco/trocar_saco_transparent.png</FileName>
-                  <OffsetX>395</OffsetX>
-                  <OffsetY>0</OffsetY>
-                  <ImportHeight>734</ImportHeight>
-                  <ImportWidth>395</ImportWidth>
-                  <ImportAsTile>True</ImportAsTile>
-                  <Frame>0</Frame>
-                  <RemapToGamePalette>True</RemapToGamePalette>
-                  <RemapToRoomPalette>False</RemapToRoomPalette>
-                  <ImportMethod>TopLeft</ImportMethod>
-                  <TransparentColorIndex>0</TransparentColorIndex>
-                  <ImportAlphaChannel>True</ImportAlphaChannel>
-                </Source>
-              </Sprite>
-              <Sprite Slot="128" Width="395" Height="734" ColorDepth="32" Resolution="Real" AlphaChannel="True">
-                <Source>
-                  <FileName>Sprites/Room3/Funcionaria/TrocarSaco/trocar_saco_transparent.png</FileName>
-                  <OffsetX>790</OffsetX>
-                  <OffsetY>0</OffsetY>
-                  <ImportHeight>734</ImportHeight>
-                  <ImportWidth>395</ImportWidth>
-                  <ImportAsTile>True</ImportAsTile>
-                  <Frame>0</Frame>
-                  <RemapToGamePalette>True</RemapToGamePalette>
-                  <RemapToRoomPalette>False</RemapToRoomPalette>
-                  <ImportMethod>TopLeft</ImportMethod>
-                  <TransparentColorIndex>0</TransparentColorIndex>
-                  <ImportAlphaChannel>True</ImportAlphaChannel>
-                </Source>
-              </Sprite>
               <Sprite Slot="129" Width="395" Height="734" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                 <Source>
                   <FileName>Sprites/Room3/Funcionaria/TrocarSaco/trocar_saco_transparent.png</FileName>
@@ -12589,6 +12561,54 @@ stop
                   <OffsetY>0</OffsetY>
                   <ImportHeight>64</ImportHeight>
                   <ImportWidth>64</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>TopLeft</ImportMethod>
+                  <TransparentColorIndex>0</TransparentColorIndex>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="383" Width="97" Height="127" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>Sprites/Defaults/tripe.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>127</ImportHeight>
+                  <ImportWidth>97</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>TopLeft</ImportMethod>
+                  <TransparentColorIndex>0</TransparentColorIndex>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="384" Width="97" Height="127" ColorDepth="32" Resolution="Real" AlphaChannel="False">
+                <Source>
+                  <FileName>Sprites/Defaults/tripe2.bmp</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>127</ImportHeight>
+                  <ImportWidth>97</ImportWidth>
+                  <ImportAsTile>False</ImportAsTile>
+                  <Frame>0</Frame>
+                  <RemapToGamePalette>True</RemapToGamePalette>
+                  <RemapToRoomPalette>False</RemapToRoomPalette>
+                  <ImportMethod>TopLeft</ImportMethod>
+                  <TransparentColorIndex>0</TransparentColorIndex>
+                  <ImportAlphaChannel>True</ImportAlphaChannel>
+                </Source>
+              </Sprite>
+              <Sprite Slot="385" Width="20" Height="21" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                <Source>
+                  <FileName>Sprites/Defaults/ico_bluecup.png</FileName>
+                  <OffsetX>0</OffsetX>
+                  <OffsetY>0</OffsetY>
+                  <ImportHeight>21</ImportHeight>
+                  <ImportWidth>20</ImportWidth>
                   <ImportAsTile>False</ImportAsTile>
                   <Frame>0</Frame>
                   <RemapToGamePalette>True</RemapToGamePalette>
@@ -13708,42 +13728,42 @@ stop
                         <Delay>0</Delay>
                         <Flipped>False</Flipped>
                         <ID>0</ID>
-                        <Image>122</Image>
+                        <Image>386</Image>
                         <Sound>0</Sound>
                       </ViewFrame>
                       <ViewFrame>
                         <Delay>0</Delay>
                         <Flipped>False</Flipped>
                         <ID>1</ID>
-                        <Image>126</Image>
+                        <Image>387</Image>
                         <Sound>0</Sound>
                       </ViewFrame>
                       <ViewFrame>
                         <Delay>0</Delay>
                         <Flipped>False</Flipped>
                         <ID>2</ID>
-                        <Image>127</Image>
+                        <Image>388</Image>
                         <Sound>0</Sound>
                       </ViewFrame>
                       <ViewFrame>
                         <Delay>0</Delay>
                         <Flipped>False</Flipped>
                         <ID>3</ID>
-                        <Image>128</Image>
+                        <Image>389</Image>
                         <Sound>0</Sound>
                       </ViewFrame>
                       <ViewFrame>
                         <Delay>0</Delay>
                         <Flipped>False</Flipped>
                         <ID>4</ID>
-                        <Image>352</Image>
+                        <Image>390</Image>
                         <Sound>0</Sound>
                       </ViewFrame>
                       <ViewFrame>
                         <Delay>0</Delay>
                         <Flipped>False</Flipped>
                         <ID>5</ID>
-                        <Image>353</Image>
+                        <Image>391</Image>
                         <Sound>0</Sound>
                       </ViewFrame>
                     </Frames>

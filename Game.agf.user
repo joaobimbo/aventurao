@@ -21,7 +21,7 @@
   </Component>
   <WorkspaceState>
     <LastBuildConfiguration>Debug</LastBuildConfiguration>
-    <LastBuildGameFileName>DataFile=aventurao,Windows=aventurao,_Debug=aventurao,</LastBuildGameFileName>
+    <LastBuildGameFileName>DataFile=aventurao,Windows=aventurao,_Debug=aventurao,Linux=aventurao,Web=aventurao,Android=aventurao,</LastBuildGameFileName>
     <RequiresRebuild>False</RequiresRebuild>
   </WorkspaceState>
 </AGSEditorUserData>

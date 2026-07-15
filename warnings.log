@@ -1,3 +1,1 @@
-Game : (room:7) [room7.asc:48] !RunDialog: Cannot run this command, since there was a RunDialog command already queued to run in "room7.asc", line 43
-Game : (room:7) [Dialog 2:177] !RunDialog: more than one NewRoom/RunDialog/StopDialog requests within a dialog 'dAmpulhetas' (4), following one(s) will be ignored
-	first was made in "GlobalScript.asc", line 171
+Game : (room:1) [room1.asc:340] Wait() was used in "Before Fadein" event; use "After Fadein" instead
