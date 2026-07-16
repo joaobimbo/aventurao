@@ -1,50 +1,68 @@
-# Afazer Joao
+# A fazer no AGS Editor
 
-Pendencias que ainda exigem configuracao ou validacao visual no AGS Editor.
+Pendências que exigem configuração visual, compilação ou decisão de design no editor. A lógica principal das Rooms 1, 3, 4, 6 e 7 já está escrita.
 
-## Room 1
+## Integração geral
 
-- Confirmar se o evento Pick up do sofa ainda aponta para `sofa_PickUp`; remover a ligacao se o warning persistir e a interacao nao for necessaria.
-- Testar o fluxo completo da partitura, tripe e oboe e confirmar que os hotspots sao faceis de selecionar.
+- [ ] Alterar `cGabriel.StartingRoom` de `7` para a sala inicial definitiva (provavelmente Room 1) quando terminar o teste isolado da pastelaria.
+- [ ] Decidir se a Room 5/Estação entra no percurso. Atualmente existe no projeto e tem background, mas não tem handlers.
+- [ ] Escolher um único regresso depois de obter o bolo e alinhar `room6.asc` e `room7.asc` com essa decisão.
+- [ ] Resolver o estado `comPai`, atualmente duplicado em scripts globais e de sala.
+- [ ] Compilar, rever `warnings.log` e corrigir o movimento bloqueante da Room 1 no evento Before Fade-in.
 
-## Room 2
+## Room 1 — quarto
 
-- Confirmar a transicao narrativa da Room 2 para a Room 3.
+- [ ] Mover o `player.Walk(..., eBlock, ...)` de `room_Load()` para After Fade-in ou torná-lo não bloqueante.
+- [ ] Testar o alinhamento do tripé com `oTripe.Graphic = 384`.
+- [ ] Confirmar que `hSofa_PickUp`, `sofa_Interact`, `oCup_PickUp` e `oReed_PickUp` estão ligados aos eventos pretendidos, sem duas formas acidentais de recolher o mesmo item.
+- [ ] Jogar o puzzle sem itens injetados: palheta + oboé, Nerfs + pistola, disparo, partitura, tripé e cama.
 
-## Room 3 - Porta Ferrea
+## Rooms 2 e 10 — casa/ligação
 
-- Na `ViewGabrielSaco`, configurar quatro loops de caminhada, todos com quatro frames `100x160`, velocidade aproximada de 5 e pela ordem numerica: loop 0=`Sprites/Room3/GabrielSaco/Walk/gabriel_saco_walk_down_0.png` a `_3.png`; loop 1=`gabriel_saco_walk_left_0.png` a `_3.png`; loop 2=`gabriel_saco_walk_right_0.png` a `_3.png`; loop 3=`gabriel_saco_walk_up_0.png` a `_3.png`. Todos usam o Gabriel correto e mantem o saco/capa vestido.
-- Confirmar que `hLixo` usa `hLixo_Look` e `hLixo_UseInv`; e que `oLixo`/`oCaixote` usam os handlers Look/UseInv homonimos.
-- Confirmar que `oLixo` e `oCaixote` estao exatamente sobrepostos e usam, respetivamente, `Sprites/Room3/Caixote/caixote_vazio.png` e `caixote_cheio.png`.
-- Confirmar que o loop 3 da `ViewFuncionaria` contem os cinco frames `Sprites/Room3/Funcionaria/TrocarSaco/trocar_saco_0.png` a `trocar_saco_4.png`.
-- No loop 3 da `ViewPraxistas`, reimportar `Sprites/Room3/PraxistasSaida/praxistas_saida_0.png` a `praxistas_saida_4.png`, por ordem, sem Flip. Os cinco frames foram corrigidos para `280x240`, com baseline e centro comuns e pelo menos 20 px de margem vertical; o script repete este loop enquanto move o grupo para fora do ecra.
-- Testar o puzzle completo: apanhar cartazes e copos, deita-los no lixo, observar a funcionaria, apanhar o saco, selecionar o saco no inventario e usa-lo em Gabriel, falar com `cPraxistas` e entrar na Room 4.
+- [ ] Confirmar visualmente a transição Room 2 → Room 10 → Room 3.
+- [ ] Confirmar que o regresso `hParaCasa_Interact` mantém Luís e o estado da missão corretos.
+- [ ] Dar descrições às Rooms 1–5 e 10 no painel Rooms, como já existe para Rooms 6 e 7.
 
-## Room 5 - Estacao Fernando Namora
+## Room 3 — Porta Férrea
 
-- No AGS Editor, criar a Room 5 com resolucao `800x600` e importar `Assets/estacao_fernando_namora_room5.png` como background. O ficheiro `Assets/estacao_fernando_namora_source.png` e a fonte em alta resolucao e nao precisa de ser importado.
-- Desenhar uma walkable area ampla na plataforma em primeiro plano. Evitar incluir a faixa vermelha, os carris de protecao, os canteiros e os abrigos; ajustar os limites para o Gabriel nao atravessar esses elementos.
-- Criar hotspots separados para os destinos e dar-lhes nomes claros, por exemplo `hUniversidade` e `hCasa`. Reservar desde ja espaco para mais dois ou tres hotspots de destinos futuros, sem lhes atribuir uma Room enquanto as localizacoes nao estiverem definidas.
-- Ligar a Universidade ao numero da Room da Universidade (atualmente a Room 2, se essa numeracao se mantiver) e ligar Casa ao numero da Room da casa/quarto (atualmente a Room 1, se essa numeracao se mantiver). Confirmar os numeros no painel Rooms antes de escrever o script.
-- Para cada destino, associar o evento Any click ao respetivo handler. Exemplo, depois de confirmar os numeros das Rooms:
+- [ ] Testar os alvos sobrepostos `hLixo`, `oLixo` e `oCaixote` com a verb coin.
+- [ ] Confirmar a animação da funcionária no loop 3 e a troca visual caixote vazio/cheio/saco limpo.
+- [ ] Confirmar a view `VIEWGABRIELSACO` em todas as direções.
+- [ ] Testar a sequência correta do diálogo dos praxistas: “quem vos ensinou essa dobra?” → “Vocês ainda usam essa dobra?” → artigo 47-B → sanção 3-C.
+- [ ] Confirmar que os praxistas saem do ecrã e deixam de ser clicáveis antes de abrir a Room 4.
 
-```ags
-function hUniversidade_AnyClick(Hotspot *theHotspot, CursorMode mode)
-{
-  player.ChangeRoom(2);
-}
+## Room 4 — gabinete de Luís
 
-function hCasa_AnyClick(Hotspot *theHotspot, CursorMode mode)
-{
-  player.ChangeRoom(1);
-}
-```
+- [ ] Confirmar posições, scaling e baselines de todos os objetos (`oRegua`, `oFitaCola`, `oFrasco`, `oCopoAgua`, `oPoEfervescente`, `oChaves`).
+- [ ] Testar reentrada e save/load depois de consumir cada combinação, garantindo que objetos não reaparecem.
+- [ ] Confirmar que a pilha de exames só revela as chaves depois de Luís as mencionar.
+- [ ] Confirmar que a saída coloca Gabriel e Luís no destino decidido.
 
-- Para os destinos ainda por decidir, pode deixar os hotspots por criar ou usar temporariamente uma mensagem como `Display("Esta linha ainda nao abriu. Nem o motorista sabe para onde vai.");`, sem chamar `ChangeRoom`.
-- Em cada Room de destino, criar tambem a ligacao de regresso a Estacao Fernando Namora com `player.ChangeRoom(5);`, caso a nova sala fique efetivamente com o numero 5.
-- Definir o ponto de entrada do Gabriel numa zona livre da plataforma e testar todas as chegadas e regressos para garantir que ele nao aparece dentro de um abrigo, canteiro ou faixa de circulacao.
-- Compilar, confirmar que os nomes dos handlers no editor coincidem exatamente com o script e testar Universidade, Casa e os destinos ainda indisponiveis.
+## Room 5 — Estação Fernando Namora
 
-## Validacao geral
+- [ ] Decidir se a sala faz parte desta versão.
+- [ ] Se sim, desenhar walkable areas e hotspots de destino sobre `Assets/estacao_fernando_namora_room5.png`.
+- [ ] Implementar `room5.asc` e ligar casa, Universidade e pastelaria sem depender da Room 10 provisória.
+- [ ] Se não, remover a Room 5 do percurso documentado sem apagar os assets-fonte.
 
-- Compilar no AGS Editor, rever `warnings.log` e distinguir avisos antigos de erros introduzidos pela Room 3.
+## Room 6 — entrada do Moinho Velho
+
+- [ ] Confirmar que o banco, avental, caixa de chapéus, porta da cozinha e saída têm hotspots bem alinhados.
+- [ ] Confirmar a view da empregada e o scaling a 90%.
+- [ ] Confirmar visualmente a mudança de Gabriel para o disfarce de ajudante ao entrar na Room 7.
+- [ ] Testar tentativas de entrar sem disfarce, com apenas uma peça e com o disfarce completo.
+
+## Room 7 — cozinha
+
+- [ ] Confirmar que `oCartazGrego`, `oAmpulheta4`, `oAmpulheta7`, `oLivroEncomendas` e `oBoloA`–`oBoloE` usam os sprites importados em `Sprites/Room6/Objects/`.
+- [ ] Rever hotspots e objetos duplicados. O script ainda mantém wrappers de hotspot para bolos/ampulhetas e handlers de objeto para parte desses alvos.
+- [ ] Ligar/confirmar o evento Look do livro e os eventos Look/Interact dos cinco bolos.
+- [ ] Testar a solução das ampulhetas e também retirada precoce, espera sem ampulheta ativa e cobertura queimada.
+- [ ] Testar uma atribuição errada completa dos cinco bolos e depois a correta: A=Mariana, B=Tiago, C=Rita, D=Gabriel, E=Patrícia.
+- [ ] Confirmar que `iBirthdayCake` aparece uma única vez e que o regresso restaura a view normal de Gabriel.
+
+## Encerramento
+
+- [ ] Fazer um teste integral desde um novo jogo.
+- [ ] Fazer um teste integral a partir do save mais antigo que se pretenda suportar.
+- [ ] Confirmar que apenas scripts/docs/assets pretendidos mudaram; não regenerar `Compiled/` sem necessidade.

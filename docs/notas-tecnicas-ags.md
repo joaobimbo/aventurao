@@ -1,123 +1,143 @@
-# Notas tecnicas AGS
+# Notas técnicas AGS
 
 ## Projeto
 
-- Motor/editor: Adventure Game Studio.
-- Editor usado no ficheiro: AGS 3.6.2.18.
+- Motor/editor: Adventure Game Studio 3.6.2.18.
 - Ficheiro principal: `Game.agf`.
-- Nome do jogo: `Aventurao`.
-- Executavel/dados: `aventurao`.
-- Build target atual: Windows.
-- Resolucao: 800x600.
-- FPS: 40.
-- Codificacao de texto: UTF-8.
+- Nome e executável: `Aventurao` / `aventurao`.
+- Target: Windows.
+- Resolução: `800x600`.
+- FPS: `40`.
+- Codificação declarada: UTF-8.
 - Speech style: LucasArts.
 - Debug mode: ativo.
 
+## Salas e scripts
+
+| Room | Estado no repositório | Script |
+|---:|---|---|
+| 1 | Quarto; puzzle jogável do oboé | `room1.asc` |
+| 2 | Casa/transição narrativa para a Universidade | `room2.asc` |
+| 3 | Porta Férrea; lixo, saco e praxistas | `room3.asc` |
+| 4 | Gabinete de Luís; “O Exame Impossível” | `room4.asc` |
+| 5 | Estação Fernando Namora; background criado, sem lógica | `room5.asc` |
+| 6 | Entrada do Moinho Velho; disfarce de ajudante | `room6.asc` |
+| 7 | Cozinha; cartaz, ampulhetas e bolos | `room7.asc` |
+| 10 | Hub provisório entre casa e Universidade | `room10.asc` |
+
+O fluxo de scripts atual é `1 → 2 → 10 → 3 → 4 → 6 → 7`. A Room 5 ainda não está integrada. A saída da Room 7 regressa à Room 2; a saída da Room 6, depois de concluir a pastelaria, regressa à Room 1.
+
 ## Ficheiros principais
 
-- `Game.agf`: configuracao geral, personagens, inventario, views, GUIs e referencias.
-- `GlobalScript.asc`: arranque, GUIs, input, verb coin, respostas default, combinacoes globais de inventario.
-- `GlobalScript.ash`: header global, atualmente quase vazio.
-- `room1.asc`: logica da primeira sala.
-- `room1.crm`: dados binarios da sala 1.
-- `VerbCoin.asc` e `VerbCoin.ash`: modulo de interface da verb coin.
-- `Assets/quarto_bg.jpg`: imagem de fundo do quarto.
-- `Assets/adventure_theme.mid`: musica.
-- `Sprites/`: sprites exportados/guardados por categoria.
+- `GlobalScript.asc`: estado global, interface, input, respostas default, combinações de inventário e lógica partilhada das Rooms 3, 4 e 7.
+- `GlobalScript.ash`: imports dos estados e helpers globais.
+- `VerbCoin.asc` / `VerbCoin.ash`: implementação da verb coin.
+- `roomN.asc`: lógica textual de cada sala.
+- `roomN.crm`: configuração binária da sala no editor; não editar manualmente.
+- `Game.agf`: personagens, inventário, dialogs, views, GUIs, sprites e lista de salas.
+- `Assets/`: backgrounds e fontes visuais.
+- `Sprites/`: imagens importadas/organizadas.
 
-## Verb coin
+## Personagens configuradas
 
-O modulo `VerbCoin` e inicializado em `game_start()`:
+| Script name | Uso atual |
+|---|---|
+| `cGabriel` | jogador; `StartingRoom=7` no estado atual de testes |
+| `cRoger` | personagem provisória, fora de sala (`-1`) |
+| `cPraxistas` | grupo da Room 3 |
+| `cFuncionaria` | animação de troca do saco na Room 3 |
+| `cVania` | mãe, Room 2 |
+| `cLuis` | Pai, Room 4; deslocado por script quando necessário |
+| `cEmpregadaPastelaria` | entrada da pastelaria, Room 6 |
+| `cPasteleiro` | cozinha, colocado na Room 7 por script |
 
-- GUI: `gVerbCoin`.
-- Inventario: `gInventory`.
-- Label de acao: `lblAction`.
-- Botao norte: `btnLook`, modo `eModeLookat`, texto `Olhar`.
-- Botao este: `btnTalk`, modo `eModeTalkto`, texto `Falar`.
-- Botao sul: `btnInteract`, modo `eModeInteract`, texto `Usar`.
-- Botao oeste: `btnPickup`, modo `eModePickup`, texto `Pegar`.
-- Cursor default: `eModeInteract`.
+## Inventário
 
-`ButtonAutoDisable` e `ShowOnlyIfInteractionAvailable` estao comentados/desativados. Isto significa que a verb coin pode aparecer mesmo quando uma interacao especifica nao esta implementada, caindo depois em `unhandled_event`.
+Itens iniciais segundo `Game.agf`:
 
-## Input
+- `iOboe`.
+- `iKey`.
 
-Teclas importantes:
+Itens de puzzle configurados:
 
-- `Escape`: fecha verb coin, inventario, painel, save/load, restart ou exit; se nada estiver aberto, abre o painel.
-- `Ctrl+Q`: abre confirmacao de sair.
-- `F5`: save.
-- `F7`: load.
-- `F9`: restart.
+- Room 1: `iNerfs`, `iPistol`, `iPistolL`, `iReed`, `iOboeR`, `iPartitura`.
+- Room 3: `iFolhetos`, `iCopos`, `iSacoLixo`.
+- Room 4: `iFitaCola`, `iRegua`, `iReguaComFita`, `iRascunho`, `iGrelhaCorrecao`, `iFrasco`, `iCopoAgua`, `iFrascoComAgua`, `iPoEfervescente`, `iSuspensao`, `iChavesLuis`.
+- Room 7: `iBirthdayCake`.
+
+## Verb coin e input
+
+`game_start()` configura:
+
+- GUI `gVerbCoin` e inventário `gInventory`.
+- Label `lblAction`.
+- `btnLook` → `eModeLookat` → “Olhar”.
+- `btnTalk` → `eModeTalkto` → “Falar”.
+- `btnInteract` → `eModeInteract` → “Usar”.
+- `btnPickup` → `eModePickup` → “Pegar”.
+- Cursor default `eModeInteract`.
+
+`ButtonAutoDisable` e `ShowOnlyIfInteractionAvailable` continuam desativados. Assim, uma opção sem handler pode aparecer e cair em `unhandled_event`, que tem respostas humorísticas para hotspots, objetos, personagens e inventário.
+
+Teclas principais:
+
+- `Escape`: fechar/cancelar interface ou abrir painel.
+- `Ctrl+Q`: sair.
+- `F5`: guardar.
+- `F7`: carregar.
+- `F9`: reiniciar.
 - `F12`: screenshot.
-- `Ctrl+S`, `Ctrl+V`, `Ctrl+A`, `Ctrl+X`: comandos de debug AGS.
+- Atalhos de debug AGS permanecem ativos em debug mode.
 
-Mouse:
+## Estado persistente importante
 
-- Clique esquerdo no mundo: abre verb coin ou anda se nao houver alvo.
-- Clique direito: fecha/cancela ou abre inventario.
-- Clique esquerdo no inventario: seleciona/combina.
-- Clique direito no inventario: examina/cancela.
+### Global
 
-## Respostas default
+- Room 1: `gabriel_practiced_oboe`.
+- Room 3: `praxe_state` (`0` sem saco, `1` saco no inventário, `2` saco vestido, `3` praxistas afastados) e `praxistas_dialog_result`.
+- Room 4: flags `gabinete_*` para introdução, rascunho, grelha, resposta, chaves e conclusão.
+- Pastelaria: `enteredKitchen`, `cartazGregoResolvido`, `ampulhetasResolvidas`, `boloIdentificado`, `cakePuzzleSolved`, `pastelariaConcluida` e `cakeInOven`.
 
-`GlobalScript.asc` tem um `unhandled_event` personalizado para:
+### Local de sala
 
-- hotspots,
-- objetos,
-- personagens,
-- itens de inventario.
+- Room 1: `partitura_on_tripe`.
+- Room 3: recolha e colocação de cartazes/copos, estado do caixote e da funcionária.
+- Room 4: visibilidade/recolha dos objetos físicos.
+- Room 6: introdução, posição do banco, avental, chapéu e autorização da empregada.
+- Room 7: introduções da cozinha e das ampulhetas.
 
-Isto e importante para manter o tom do jogo: mesmo quando ainda nao ha puzzle implementado, Gabriel responde com humor e personalidade.
+## Views e recursos relevantes
 
-## Propriedades customizadas
+- Gabriel normal: view `2` / `VIEW_WG` conforme o contexto.
+- Disparo Nerf: `NERFSHOOT`.
+- Prática de oboé: view `4`.
+- Gabriel com saco: `VIEWGABRIELSACO`.
+- Gabriel ajudante de pastelaria: view `14`.
+- Luís: normal view `9`, speech view `10`.
+- Empregada do Moinho Velho: view `11`.
+- Pasteleiro: normal view `12`, speech view `13`.
 
-Existe uma propriedade customizada:
+Os backgrounds das Rooms 3–7 existem em `Assets/`. Os objetos e personagens do Moinho Velho estão em `Sprites/Room6/` e já aparecem referenciados no `Game.agf`.
 
-- `Pickable`, booleana, aplicada a objetos.
+## Propriedade customizada
 
-Uso atual:
+`Pickable` é uma propriedade booleana de objetos. Na Room 1, `oPartitura` só pode ser apanhada depois de o disparo Nerf alterar esta propriedade para `true`.
 
-- `oPartitura` so pode ser apanhada depois de `Pickable` passar para `true`.
+## Avisos e riscos conhecidos
 
-## Views importantes
+- O `warnings.log` atual contém: `Wait() was used in "Before Fadein" event` em `room1.asc:340`. A causa é o `player.Walk(..., eBlock, ...)` dentro de `room_Load()`; deve ser movido para `room_AfterFadeIn()` ou tornado não bloqueante.
+- `room10.asc` declara um `bool comPai` local com o mesmo nome de uma flag global. Esta duplicação pode tornar o comportamento do Pai inconsistente.
+- Existem duas rotas de regresso após a pastelaria (Room 7 → Room 2 e Room 6 → Room 1) que precisam de decisão narrativa.
+- Alguns textos usam ASCII e outros têm acentos. Confirmar sempre o resultado dentro do editor antes de normalizar encoding.
 
-- `VIEW1`: view default inicial.
-- `View_wg`: view normal de Gabriel usada depois da animacao de disparo.
-- `nerfshoot`: animacao de Gabriel a disparar Nerf.
-- `OboePractice`: animacao de Gabriel a tocar oboe, com sprites 51-77.
+## Validação
 
-No script, ha referencias em maiusculas geradas pelo AGS:
+Quando o AGS Editor estiver disponível:
 
-- `NERFSHOOT`
-- `VIEW_WG`
+1. Abrir `Game.agf`.
+2. Compilar e testar.
+3. Rever `warnings.log`.
+4. Testar um jogo novo desde a Room 1 e um arranque de debug na Room 7.
+5. Confirmar persistência com save/load durante os puzzles das Rooms 3, 4 e 7.
 
-## Estados de puzzle da sala 1
-
-- `partitura_on_tripe` vive em `room1.asc` e indica se a partitura ja foi colocada no tripe.
-- `gabriel_practiced_oboe` vive em `GlobalScript.asc` e indica se a primeira pratica ja aconteceu.
-- Usar `iPartitura` em `hTripe`/`oObject0` prepara o tripe, mas nao toca a animacao.
-- Usar `iOboeR` em `hTripe`/`oObject0` toca a animacao. Na primeira vez altera `gabriel_practiced_oboe`; depois disso repete sem mudar a historia.
-- A cama usa `player.ChangeRoom(2, 400, 300)` para iniciar a Room 2 perto do centro.
-
-## Avisos atuais
-
-O `warnings.log` pode avisar que `sofa_PickUp` nao foi encontrado na Room 1. Se isto reaparecer, confirmar no AGS Editor se o evento Pick up do sofa aponta para o script/module certo, ou remover esse evento.
-
-## Notas de codificacao
-
-Alguns textos no `room1.asc` aparecem com mojibake em palavras acentuadas. O projeto declara UTF-8, mas convem confirmar no AGS Editor se os scripts estao a ser guardados e lidos com a mesma codificacao.
-
-Para evitar problemas, muitos textos novos atuais foram escritos sem acentos.
-
-## Ficheiros gerados
-
-Pastas/ficheiros como `Compiled/`, `_Debug/`, `warnings.log`, `Game.agf.user` e `room1.crm.user` sao derivados do editor ou da maquina local. O que normalmente interessa preservar para continuar desenvolvimento e:
-
-- `Game.agf`
-- `room1.crm`
-- scripts `.asc` e `.ash`
-- sprites/assets customizados
-- `acsprset.spr`
-- `sprindex.dat`
+Sem AGS, fazer revisão manual dos handlers, procurar funções removidas/renomeadas e confirmar com `git diff` que nenhum binário foi alterado.

@@ -1,125 +1,159 @@
 # Walkthrough e puzzles
 
-## Room 4 - O Exame Impossivel
+Este documento descreve o percurso atualmente implementado até à Room 7. A Room 5 existe, mas ainda não tem jogabilidade e não faz parte do fluxo atual.
 
-Configuracao detalhada: ver `docs/Room4.md`.
+## Estado inicial
 
-Gabriel encontra o Pai, Luis, a corrigir o ultimo exame. Recupera um rascunho
-com uma regua e fita-cola, encontra a pagina 47 da grelha, prepara uma suspensao
-inofensiva com agua e po de demonstracao e usa-a para decifrar a resposta. No
-fim, encontra as chaves debaixo da pilha de exames e segue com o Pai para o
-Room 5.
+`Game.agf` tem `cGabriel.StartingRoom = 7`, usado como arranque de teste da cozinha. Para percorrer a história completa, a sala inicial deve ser alterada para a Room 1.
 
-Este documento descreve o que ja existe na primeira sala e como os puzzles estao ligados.
+Itens marcados como iniciais:
 
-## Estado inicial conhecido
+- `iOboe` — Oboé.
+- `iKey` — Key, ainda sem função definida.
 
-Gabriel comeca na sala 1, o quarto.
+## Room 1 — quarto
 
-Itens que o jogador comeca a ter, segundo `Game.agf`:
+Objetivo: praticar oboé para poder ir para a cama.
 
-- `iOboe`: Oboe.
-- `iKey`: Key.
+### Preparar o oboé
 
-`iPistolL` nao e item inicial; o jogador precisa encontrar a pistola descarregada e os Nerfs para a carregar.
+1. Olhar para `oCup` para revelar `oReed`.
+2. Apanhar a palheta.
+3. Combinar `iReed` com `iOboe`.
+4. O resultado é `iOboeR`.
 
-## Objetos e hotspots principais
+### Fazer cair a partitura
 
-- `hDesenho`: desenho na parede. Pode ser olhado, usado e usado com inventario.
-- `hLuzCabec`: luz no teto.
-- `hPorta`: porta. Tem olhar, usar e pegar.
-- `hBed`: cama.
-- `hSofa` / `sofa`: sofa. Esconde Nerfs quando se interage.
-- `oCup`: caneca. Ao olhar, revela a palheta.
-- `oReed`: palheta de oboe.
-- `oNerfs`: dardos Nerf escondidos no sofa.
-- `oObject1`: pistola Nerf descarregada.
-- `oPartitura`: partitura inicialmente alta/inacessivel.
-- `oNerfFly`: objeto visual usado durante o disparo.
+1. Interagir com o sofá para revelar `oNerfs`.
+2. Apanhar os Nerfs e a pistola descarregada (`oObject1`).
+3. Combinar `iNerfs` com `iPistol` para obter `iPistolL`.
+4. Usar a pistola carregada em `hDesenho`.
+5. A animação faz cair `oPartitura` e define a propriedade `Pickable = true`.
+6. Apanhar a partitura.
 
-## Puzzle da palheta e oboe
+### Praticar
 
-1. Olhar para a caneca (`oCup_Look`).
-2. O texto diz que ha uma palheta de oboe dentro.
-3. `oReed.Visible = true`, revelando a palheta.
-4. Pegar na palheta (`oReed_PickUp` ou `oCup_PickUp` se a palheta estiver visivel).
-5. Combinar `iReed` com `iOboe`.
-6. O script `LoadOboe()` remove `iReed` e `iOboe` e adiciona `iOboeR`.
+1. Usar `iPartitura` em `hTripe` ou `oTripe`.
+2. A partitura é consumida, `partitura_on_tripe` passa a `true` e o tripé muda para o sprite 384.
+3. Usar `iOboeR` no tripé.
+4. A primeira prática define `gabriel_practiced_oboe = true`; práticas seguintes repetem apenas animação e comentário.
+5. Interagir com a cama para mudar para a Room 2.
 
-Estado resultante: Gabriel fica com `Oboe com palheta`.
+## Room 2 — missão da mãe
 
-## Puzzle dos Nerfs e pistola
+Interagir com `hPorta` faz Vânia dizer a Gabriel para ir buscar o Pai à Universidade e muda para a Room 10.
 
-1. Interagir com o sofa (`sofa_Interact`).
-2. Gabriel diz que ha qualquer coisa enfiada no sofa.
-3. `oNerfs.Visible = true`, revelando os Nerfs.
-4. Pegar nos Nerfs (`oNerfs_PickUp`).
-5. Pegar na pistola descarregada (`oObject1_PickUp`).
-6. Combinar `iPistol` com `iNerfs`.
-7. O script `LoadPistol()` remove `iPistol` e `iNerfs` e adiciona `iPistolL`.
+Esta sala ainda tem pouca interação e deve ser testada como transição narrativa.
 
-Estado resultante: Gabriel fica com `Pistola Nerf (carregada)`.
+## Room 10 — ligação provisória
 
-## Puzzle da partitura
+- `hHotspot2` leva à Room 3, Porta Férrea.
+- `hParaCasa` regressa à Room 2.
 
-Objetivo atual: fazer cair a partitura para a conseguir apanhar.
+A Room 10 funciona como hub provisório. A Room 5/Estação poderá substituí-la ou complementá-la quando for implementada.
 
-1. Ter `iPistolL`.
-2. Usar `iPistolL` no desenho (`hDesenho_UseInv`).
-3. Gabriel anda ate `hTapete`.
-4. Gabriel diz "Aqui vai disto!".
-5. A view muda para `NERFSHOOT`.
-6. O objeto `oNerfFly` aparece e move-se.
-7. `oPartitura` move-se para baixo.
-8. A propriedade customizada `Pickable` de `oPartitura` passa para `true`.
-9. Depois disso, pegar na partitura adiciona `iPartitura` ao inventario.
+## Room 3 — Porta Férrea
 
-Se o jogador tentar apanhar a partitura antes de estar `Pickable`, Gabriel diz que esta muito alto e nao chega la.
+Objetivo: ultrapassar os praxistas.
 
-## Puzzle de praticar oboe
+1. Apanhar os cartazes (`iFolhetos`).
+2. Apanhar os copos usados (`iCopos`).
+3. Usar ambos no caixote, em qualquer ordem.
+4. A funcionária troca o saco e deixa `oSacoLimpo`.
+5. Apanhar o saco (`iSacoLixo`).
+6. Interagir com o item ou usá-lo em Gabriel para vestir o disfarce.
+7. Falar com os praxistas e escolher:
+   1. “...quem vos ensinou essa dobra?”
+   2. “Vocês ainda usam essa dobra?”
+   3. “Código da Praxe, artigo 47-B: dobra obsoleta. Reaprendizagem imediata.”
+   4. “Sanção 3-C: reaprendizagem coletiva fora do perímetro. Imediatamente.”
+8. Esperar o grupo sair e interagir com a Porta Férrea para entrar na Room 4.
 
-Objetivo atual: cumprir a ordem da mae antes de Gabriel poder ir dormir.
+Escolhas erradas fecham ou recuam o diálogo, mas permitem tentar novamente.
 
-Pre-condicoes:
+## Room 4 — O Exame Impossível
 
-- Gabriel tem `iOboeR` depois de combinar `iOboe` com `iReed`.
-- Gabriel tem `iPartitura` depois de fazer cair e apanhar a partitura.
+Objetivo: ajudar Luís a terminar o exame e encontrar as chaves.
 
-Fluxo:
+1. Falar com Luís para conhecer o problema.
+2. Apanhar régua e fita-cola; combiná-las.
+3. Usar `iReguaComFita` no armário baixo para obter o rascunho.
+4. Interagir com a estante para obter a página 47 da grelha.
+5. Voltar a interagir com o armário para revelar o pó.
+6. Apanhar frasco, copo de água e pó.
+7. Combinar frasco + água → frasco com água.
+8. Combinar frasco com água + pó → suspensão.
+9. Usar a suspensão em Luís.
+10. Falar com Luís até ele mencionar as chaves.
+11. Interagir com a pilha de exames, apanhar `iChavesLuis` e falar novamente com Luís.
+12. O episódio conclui e o fluxo atual muda diretamente para a Room 6.
 
-1. Usar `iPartitura` no tripe (`hTripe` ou objeto `oObject0`).
-2. O script `PutPartituraOnTripe()` remove `iPartitura` do inventario.
-3. O estado `partitura_on_tripe` passa para `true`.
-4. `oObject0.Graphic` passa para o sprite 80, mostrando o tripe com a folha.
-5. Gabriel ainda nao toca neste momento.
-6. Usar `iOboeR` no tripe/partitura preparada.
-7. O script `PracticeOboe(true)` toca a animacao `OboePractice` na primeira vez.
-8. `gabriel_practiced_oboe` passa para `true`.
-9. A partir desse estado, a cama deixa Gabriel ir para a Room 2.
+## Room 5 — Estação Fernando Namora
 
-Depois da primeira pratica, usar novamente `iOboeR` no tripe chama `PracticeOboe(false)`: Gabriel volta a tocar a animacao e comenta, mas a historia nao avanca nem altera novo estado.
+Ainda não jogável. Existem `room5.crm`, o background `Assets/estacao_fernando_namora_room5.png` e a fonte em alta resolução, mas `room5.asc` contém apenas o cabeçalho. Não há transições ativas para esta sala.
 
-## Transicao para Room 2
+## Room 6 — entrada do Moinho Velho
 
-Depois de `gabriel_practiced_oboe == true`, interagir com a cama chama `player.ChangeRoom(2, 400, 300)`.
+Objetivo: entrar na cozinha disfarçado de ajudante.
 
-Isto faz Gabriel entrar na Room 2 perto do centro da sala.
+1. Interagir com o banco para o colocar sob o avental.
+2. Pegar/interagir com o avental.
+3. Pegar/interagir com a caixa de chapéus.
+4. Com as duas peças, falar com a empregada ou usar a porta da cozinha.
+5. Gabriel apresenta-se como novo ajudante e entra na Room 7.
 
-## Dialogo com Roger
+A ordem de avental e chapéu é livre, mas o avental exige primeiro o banco.
 
-Roger (`cRoger`) esta na sala 1 e tem dialogo `dDialog1`.
+## Room 7 — cozinha do Moinho Velho
 
-O dialogo parece temporario:
+### Cartaz grego
 
-- `Cucu`
-- `oioi`
-- `Que tal?`
+Responder ao pasteleiro:
 
-O script liga `cRoger_Talk` a `dDialog1.Start()`. Roger tambem tem `UseInv`, que delega para a interacao do inventario ativo.
+> Que não entre quem não souber geometria.
 
-## Coisas a rever no puzzle
+Depois, voltar a falar com ele para iniciar as ampulhetas.
 
-- Confirmar no AGS Editor se a grelha de inventario `72x80` continua confortavel quando houver mais itens.
-- Testar visualmente se o tripe com folha fica bem alinhado quando `oObject0.Graphic = 80`.
-- Decidir para que serve `iKey`.
+### Ampulhetas de 4 e 7 minutos
 
+1. Virar a de 4.
+2. Virar a de 7; a cobertura entra no forno.
+3. Esperar (tempo 4).
+4. Virar a de 4.
+5. Esperar (tempo 7).
+6. Virar a de 7.
+7. Esperar (tempo 8).
+8. Virar novamente a de 7.
+9. Esperar (tempo 9).
+10. Tirar a cobertura.
+
+O jogo mostra sempre o tempo e o restante de cada ampulheta. Uma cobertura acima de 9 minutos queima e reinicia o puzzle.
+
+### Atribuir os bolos
+
+Depois das ampulhetas, os cinco bolos e o livro aparecem. Examinar tudo e falar com o pasteleiro. Atribuir, por ordem:
+
+1. Bolo A — Mariana.
+2. Bolo B — Tiago.
+3. Bolo C — Rita.
+4. Bolo D — Gabriel.
+5. Bolo E — Patrícia.
+
+Uma lista errada é apagada por completo. A lista correta entrega `iBirthdayCake` e conclui a pastelaria.
+
+## Fim atual e inconsistências
+
+- A porta da cozinha (Room 7) regressa à Room 2 depois de concluir.
+- A saída da loja (Room 6) regressa à Room 1 depois de concluir.
+- A Room 5 ainda não participa no percurso.
+- `cGabriel.StartingRoom` continua em 7 para testes.
+
+Estas rotas devem ser harmonizadas antes de considerar o arco completamente fechado.
+
+## Teste integral recomendado
+
+1. Começar na Room 1 apenas com `iOboe` e `iKey`.
+2. Percorrer `1 → 2 → 10 → 3 → 4 → 6 → 7` sem adicionar itens por debug.
+3. Guardar/carregar pelo menos uma vez nas Rooms 3, 4 e 7.
+4. Confirmar inventário e views depois de cada transição.
+5. Obter o bolo e verificar a rota final escolhida.

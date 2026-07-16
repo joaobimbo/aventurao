@@ -1,127 +1,95 @@
-# Room 6 — próximos passos no AGS
+# Rooms 6 e 7 — próximos passos no AGS
 
-Estado atual:
+## O que já está feito
 
-- A Room 6 usa o novo frontdesk do **Moinho Velho**.
-- A Room 7 usa uma cozinha limpa, sem bolos, cartaz, livro, ampulhetas ou utensílios soltos.
-- A lógica dos puzzles já existe em `room6.asc`, `room7.asc` e `GlobalScript.asc`.
-- Os elementos da cozinha ainda estão representados por hotspots; devem passar a objetos visuais do AGS.
+- [x] Background da entrada do Moinho Velho na Room 6.
+- [x] Background da cozinha na Room 7.
+- [x] Lógica do banco, avental, chapéu e autorização da empregada.
+- [x] Lógica e dialog do cartaz grego.
+- [x] Máquina de estados das ampulhetas de 4 e 7 minutos.
+- [x] Puzzle lógico com cinco bolos e solução única.
+- [x] Item final `iBirthdayCake`.
+- [x] Sprites próprios da empregada, pasteleiro e Gabriel ajudante referenciados no projeto.
+- [x] Objetos visuais do cartaz, ampulhetas, livro e bolos criados/referenciados.
 
-## 1. Criar os sprites transparentes
+## Validação visual da Room 6
 
-Criar e importar, de preferência como PNG com transparência:
+- [ ] Confirmar walkable areas junto ao balcão, banco, avental, chapéus, porta e saída.
+- [ ] Ajustar o hotspot do banco para continuar acessível antes e depois do alinhamento narrativo.
+- [ ] Confirmar que o avental só é alcançável depois de `bancoAlinhado`.
+- [ ] Confirmar que a empregada em `(650,455)`, scaling 90%, não tapa alvos importantes.
+- [ ] Confirmar que a introdução só toca uma vez e que uma reentrada preserva as duas peças do disfarce.
+- [ ] Testar Falar e Usar na empregada, porque os eventos chegam a `on_call(600–602)`.
 
-- [ ] `cartaz_grego.png`, com o texto exato `Ἀγεωμέτρητος μηδεὶς εἰσίτω`.
-- [ ] `ampulheta_4.png`.
-- [ ] `ampulheta_7.png`, visualmente maior ou claramente diferente da de 4 minutos.
-- [ ] `livro_encomendas.png`, aberto num suporte.
-- [ ] `bolo_a_futebol.png`: redondo, chocolate, futebol.
-- [ ] `bolo_b_flores.png`: quadrado, baunilha, flores.
-- [ ] `bolo_c_cerejas.png`: retangular, morango/chocolate, cerejas.
-- [ ] `bolo_d_estrelas.png`: hexagonal, caramelo/chocolate, estrelas.
-- [ ] `bolo_e_oboe.png`: oval, chocolate negro, oboé de açúcar.
+## Validação visual da Room 7
 
-Manter perspetiva, luz quente e paleta castanho/ocre iguais aos backgrounds do Moinho Velho.
+- [ ] Confirmar o scaling atual: ampulhetas/livro/cartaz 50%; bolos 35%; pasteleiro 95%.
+- [ ] Ajustar baselines para bolos e livro ficarem atrás da ilha e ampulhetas sobre a bancada.
+- [ ] Confirmar que `MostrarBolos(false)` esconde também os hotspots na entrada inicial.
+- [ ] Confirmar que `CallRoomScript(700)` revela bolos e livro depois da cobertura.
+- [ ] Rever sobreposição entre os objetos `o...` e os hotspots `h...`.
 
-## 2. Importar os sprites no AGS
+## Simplificação recomendada dos alvos
 
-- [ ] Abrir `Game.agf` no AGS 3.6.2.
-- [ ] Criar uma pasta de sprites `Room7/Pastelaria`.
-- [ ] Importar os dez PNGs com canal alfa.
-- [ ] Confirmar que o AGS não recortou margens necessárias nem alterou a transparência.
+O estado atual é híbrido: há objetos visuais clicáveis e hotspots antigos. Os handlers dos objetos delegam na lógica dos hotspots. Antes de remover qualquer coisa, testar a versão atual no editor.
 
-## 3. Criar os objetos na Room 7
+Se os cliques forem inconsistentes:
 
-Adicionar estes objetos, aproximadamente nas posições abaixo; ajustar visualmente no editor:
+1. Escolher os objetos como alvos definitivos.
+2. Ligar Look/Interact diretamente em `oCartazGrego`, `oAmpulheta4`, `oAmpulheta7`, `oLivroEncomendas` e `oBoloA`–`oBoloE`.
+3. Extrair a lógica comum para helpers que não dependam de `Hotspot *`.
+4. Desativar os hotspots antigos no editor.
+5. Guardar a Room 7 para atualizar `room7.crm`.
 
-| Objeto AGS | Posição aproximada | Nome de script sugerido |
-|---|---:|---|
-| Cartaz grego | `x=320–585`, `y=40–180` | `oCartazGrego` |
-| Ampulheta de 4 | `x=355–415`, `y=285–390` | `oAmpulheta4` |
-| Ampulheta de 7 | `x=415–475`, `y=285–390` | `oAmpulheta7` |
-| Livro | `x=610–720`, `y=175–370` | `oLivroEncomendas` |
-| Bolo A | `x=165–250`, `y=205–310` | `oBoloA` |
-| Bolo B | `x=250–340`, `y=205–310` | `oBoloB` |
-| Bolo C | `x=340–440`, `y=205–310` | `oBoloC` |
-| Bolo D | `x=440–535`, `y=205–310` | `oBoloD` |
-| Bolo E | `x=530–625`, `y=205–310` | `oBoloE` |
+Não apagar já os wrappers: são a compatibilidade entre a configuração atual do `.crm` e o script.
 
-- [ ] Definir `Clickable = true`.
-- [ ] Definir baselines coerentes: bolos/livro atrás da ilha; ampulhetas sobre a ilha.
-- [ ] Desativar room-area scaling nos objetos fixos, salvo se o resultado visual exigir o contrário.
+## Testes funcionais
 
-## 4. Ligar os objetos ao script
+### Disfarce
 
-Atualmente `room7.asc` usa hotspots com estes nomes:
+- [ ] Porta bloqueada sem avental nem chapéu.
+- [ ] Porta bloqueada com apenas uma peça.
+- [ ] Banco necessário para o avental.
+- [ ] Disfarce completo permite entrar e define `enteredKitchen`.
+- [ ] Reentrar depois da conclusão não reinicia o episódio.
 
-- `hCartazGrego`
-- `hAmpulhetas`
-- `hLivroEncomendas`
-- `hBoloA` a `hBoloE`
+### Cartaz
 
-Há duas abordagens:
+- [ ] Três respostas erradas permitem repetir.
+- [ ] “Que não entre quem não souber geometria” define `cartazGregoResolvido`.
+- [ ] Falar novamente com o chefe abre o desafio das ampulhetas.
 
-### Abordagem rápida
+### Ampulhetas
 
-- [ ] Manter os hotspots existentes para os cliques.
-- [ ] Criar os objetos apenas como elementos visuais com `Clickable = false`.
-- [ ] Garantir que os hotspots continuam alinhados com os sprites.
+Sequência esperada: virar 4, virar 7, esperar 4, virar 4, esperar 7, virar 7, esperar 8, virar 7, esperar 9, retirar.
 
-Esta opção não exige alterações ao script e permite testar rapidamente o puzzle completo.
+- [ ] Esperar sem nenhuma ampulheta ativa dá feedback e não altera estado.
+- [ ] Retirar antes dos 9 minutos mantém o puzzle ativo.
+- [ ] Passar dos 9 minutos faz fade e reset completo.
+- [ ] Afastar-se do diálogo e voltar preserva os tempos.
+- [ ] Save/load preserva tempos e `cakeInOven`.
 
-### Abordagem recomendada
+### Bolos
 
-- [ ] Tornar os objetos clicáveis.
-- [ ] Migrar cada evento `Look` e `Interact` do hotspot para o objeto correspondente.
-- [ ] Alterar em `room7.asc` os parâmetros de `Hotspot *` para `Object *` e usar os nomes `o...`.
-- [ ] Dividir `hAmpulhetas` em `oAmpulheta4` e `oAmpulheta7`, mantendo o diálogo comum `dAmpulhetas`.
-- [ ] Apagar ou desativar os hotspots antigos para evitar dois alvos sobrepostos.
-- [ ] Guardar a Room 7 para o AGS atualizar as ligações no `.crm`.
+- [ ] O livro mostra as nove pistas completas.
+- [ ] Cada bolo apresenta a descrição correta.
+- [ ] Clicar diretamente num bolo explica que é preciso atribuir os cinco.
+- [ ] Uma lista errada reinicia sem indicar qual resposta falhou.
+- [ ] Solução: A=Mariana, B=Tiago, C=Rita, D=Gabriel, E=Patrícia.
+- [ ] O fim define `boloIdentificado`, `cakePuzzleSolved` e `pastelariaConcluida`.
+- [ ] `iBirthdayCake` é adicionado apenas uma vez.
 
-## 5. Testar o puzzle das ampulhetas
+## Integração narrativa
 
-Solução que deve funcionar:
+- [ ] Decidir se Luís deve aparecer na entrada da pastelaria depois da Room 4.
+- [ ] Escolher a rota final: Room 7 → Room 2, Room 6 → Room 1, ou outra sala.
+- [ ] Integrar a Room 5 se a Estação Fernando Namora for o hub de viagem.
+- [ ] Restaurar `cGabriel.StartingRoom` para a sala inicial da história depois dos testes da Room 7.
+- [ ] Confirmar a view do jogador ao entrar (`14`) e sair (`2`) da cozinha.
 
-1. Virar as duas ampulhetas; a cobertura entra no forno e o tempo começa em zero.
-2. Esperar até aos 4 minutos.
-3. Virar a ampulheta de 4.
-4. Esperar até aos 7 minutos.
-5. Virar a ampulheta de 7.
-6. Esperar até aos 8 minutos.
-7. Virar novamente a ampulheta de 7, deixando apenas 1 minuto em cima.
-8. Esperar até aos 9 minutos.
-9. Tirar a cobertura.
+## Compilação
 
-Verificar também:
-
-- [ ] Retirar antes dos 9 minutos não resolve o puzzle.
-- [ ] Ultrapassar 9 minutos queima a cobertura e reinicia as duas ampulhetas.
-- [ ] Sair e voltar a abrir o diálogo não perde o estado.
-- [ ] O estado é preservado num jogo guardado.
-
-## 6. Testar a dedução dos bolos
-
-- [ ] Cada bolo mostra forma, sabor e decoração corretos ao usar `Olhar`.
-- [ ] O livro apresenta as pistas de Tiago, Patrícia, Mariana e Rita.
-- [ ] A única solução possível é o bolo E, de Gabriel.
-- [ ] Escolhas erradas dão a resposta específica e permitem tentar novamente.
-- [ ] A escolha correta aplica a cobertura e adiciona `iBirthdayCake` ao inventário.
-- [ ] O ícone do inventário é criado a partir do bolo E ou substituído por um sprite próprio.
-
-## 7. Acabamentos visuais e de personagens
-
-- [ ] Criar sprites próprios para a empregada e para o chefe pasteleiro; atualmente reutilizam views existentes.
-- [ ] Criar uma variação visual de Gabriel com avental e chapéu.
-- [ ] Confirmar que a empregada não tapa a porta, o banco ou a caixa de chapéus.
-- [ ] Confirmar que o chefe não tapa o forno nem os bolos.
-- [ ] Rever walkable areas, walk-behinds e baselines nas duas rooms.
-- [ ] Adicionar animação simples ao forno/cobertura, se desejado.
-
-## 8. Integração e compilação
-
-- [ ] Decidir a ligação narrativa da room anterior para a Room 6.
-- [ ] Corrigir `cGabriel.StartingRoom`: ainda aponta para a Room 5, que não existe.
-- [ ] Restaurar/reimportar os 81 sprites que o `acsprset.spr` atual não contém.
-- [ ] Compilar pelo AGS Editor.
-- [ ] Consultar `warnings.log` e distinguir avisos antigos de novos.
-- [ ] Fazer um teste integral: entrada → disfarce → cartaz → ampulhetas → bolos → regresso a casa.
+- [ ] Compilar no AGS 3.6.2.18.
+- [ ] Rever `warnings.log` e separar warnings da pastelaria dos anteriores.
+- [ ] Testar novo jogo e save/load.
+- [ ] Não atualizar `Compiled/` até a integração estar decidida.

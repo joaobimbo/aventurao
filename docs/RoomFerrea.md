@@ -1,356 +1,77 @@
-# Room: Universidade de Coimbra – Os Praxistas
+# Room 3 — Porta Férrea e os praxistas
 
-## Objetivo narrativo
+## Estado atual
 
-Gabriel tenta entrar no edifício onde o pai tem o gabinete.
+O puzzle está implementado em `room3.asc`, `GlobalScript.asc` e nos dialogs `dPraxistasAntes` e `dPraxistasDobra` de `Game.agf`. Os assets estão em `Assets/porta_ferrea_*` e `Sprites/Room3/`.
 
-Uma porta férrea dá acesso ao interior da universidade.
+Gabriel quer entrar na Universidade para procurar o Pai. Cinco praxistas bloqueiam a Porta Férrea e recusam deixá-lo passar por o considerarem caloiro.
 
-Cinco estudantes praxistas guardam a entrada. Não deixam passar ninguém que considerem "caloiro".
+## Estados
 
-Este puzzle deve ser resolvido exclusivamente através de exploração, inventário e diálogo.
+`praxe_state` é global:
 
----
+| Valor | Significado |
+|---:|---|
+| `0` | Gabriel ainda não apanhou o saco limpo |
+| `1` | `iSacoLixo` está no inventário |
+| `2` | Gabriel vestiu o saco e usa `VIEWGABRIELSACO` |
+| `3` | praxistas afastados; Porta Férrea desbloqueada |
 
-# Personagens
+Estado local da sala controla os cartazes, copos, caixote, introdução e recolha do lixo.
 
-## Gabriel
+## Puzzle físico
 
-- Inteligente.
-- Improvisa quando necessário.
-- Nunca mente de forma elaborada; limita-se a falar com confiança.
+1. Apanhar os cartazes da Queima no hotspot `hCartazes`, recebendo `iFolhetos`.
+2. Apanhar `oCopos`, recebendo `iCopos`.
+3. Usar ambos no caixote (`hLixo`, `oLixo` ou `oCaixote`).
+4. Ao entrar o segundo item, `ChamarFuncionaria()` traz `cFuncionaria`, executa a animação de troca do saco e revela `oSacoLimpo`.
+5. Apanhar o saco para obter `iSacoLixo` e mudar `praxe_state` para `1`.
+6. Usar o saco em Gabriel ou interagir com o item. `VestirSacoComoVeterano()` consome o item, muda a view e define `praxe_state = 2`.
 
-## Veterano (líder)
+Os objetos `oLixo` e `oCaixote` estão sobrepostos para representar caixote vazio/cheio. Os wrappers de handler garantem que hotspot e objetos chamam a mesma lógica.
 
-- Muito convencido.
-- Tem horror a parecer ignorante perante um "doutor".
+## Diálogo antes do disfarce
 
-## Restantes praxistas
+Sem o saco vestido, falar ou interagir com os praxistas abre `dPraxistasAntes`. O grupo cita o “artigo 8-A” e bloqueia a passagem. As respostas são opcionais e não avançam o estado; servem para exploração e humor.
 
-- Seguem o líder.
-- Discordam frequentemente entre si.
-- São inseguros.
-- Estão ligeiramente bêbados.
+Tentar atravessar `hPortaFerrea` antes de resolver o puzzle faz o grupo comentar e Gabriel recuar.
 
----
+## Diálogo de autoridade inventada
 
-# Estados do puzzle
+Com `praxe_state == 2`, os praxistas tratam Gabriel por “Doutor”. A sequência correta é:
 
-STATE_0
-Sem saco.
+1. “...quem vos ensinou essa dobra?”
+2. “Vocês ainda usam essa dobra?”
+3. “Código da Praxe, artigo 47-B: dobra obsoleta. Reaprendizagem imediata.”
+4. “Sanção 3-C: reaprendizagem coletiva fora do perímetro. Imediatamente.”
 
-STATE_1
-Gabriel obteve o saco do lixo limpo.
+As outras escolhas terminam o diálogo sem bloquear nova tentativa. A escolha final correta envia `run-script 20`, que coloca `praxistas_dialog_result = 20`. `room_RepExec()` move o grupo para fora do ecrã, torna-o invisível/não clicável e define `praxe_state = 3`.
 
-STATE_2
-Gabriel está vestido com o saco.
+Com o puzzle resolvido, interagir com a Porta Férrea muda para a Room 4.
 
-STATE_3
-Puzzle resolvido.
+## Personagens e recursos
 
----
+- `cPraxistas`: Room 3, normal view `6`, speech view `8`, scaling aplicado a 80%.
+- `cFuncionaria`: começa fora das salas e é colocada temporariamente na Room 3.
+- Gabriel com saco: `Sprites/Room3/GabrielSaco/`.
+- Caixote: `Sprites/Room3/Caixote/`.
+- Funcionária e troca do saco: `Sprites/Room3/Funcionaria/`.
+- Saída dos praxistas: `Sprites/Room3/PraxistasSaida/`.
 
-# Puzzle físico
+## Intenção de escrita
 
-Existe um caixote do lixo quase vazio.
+- O saco nunca é comentado pelos praxistas; eles veem apenas a confiança de Gabriel.
+- Gabriel não explica a dobra inventada.
+- O grupo prefere aceitar uma regra absurda a admitir ignorância.
+- A escalada de artigo e sanção reforça a sátira burocrática sem alterar a solução física.
 
-Examinar:
+## Validação no editor
 
-Gabriel:
-"Nem para justificar mudar o saco serve."
-
-O jogador pode deitar vários objetos inúteis para dentro:
-
-- folhetos
-- copos
-- guardanapos
-- jornais
-
-Quando o caixote fica cheio:
-
-Uma funcionária da limpeza entra.
-
-Remove o saco cheio.
-
-Coloca um saco preto novo.
-
-Sai.
-
-Gabriel pode apanhar o saco novo.
-
-Descrição do inventário:
-
-"Saco do lixo limpo."
-
-Usar sobre Gabriel:
-
-Gabriel faz um buraco para a cabeça e veste-o.
-
-Novo comentário:
-
-"Nunca pensei que um saco do lixo pudesse parecer tão académico."
-
-Sprite muda.
-
-STATE_2.
-
----
-
-# Diálogo antes do saco (STATE_0 e STATE_1)
-
-Ao tentar passar:
-
-Veterano:
-"Alto!"
-
-Gabriel:
-"Queria apenas entrar."
-
-Veterano:
-"Caloiros não entram."
-
-Gabriel:
-"Nem sou estudante."
-
-Veterano:
-"Isso é exatamente o que um caloiro diria."
-
----
-
-Opções
-
-1.
-"Quem decide isso?"
-
-Veterano:
-"Nós."
-
-Gabriel:
-"Quem vos nomeou?"
-
-Veterano:
-"A tradição."
-
-Gabriel:
-"Ela também faz entrevistas?"
-
----
-
-2.
-"Posso só falar com o meu pai?"
-
-Veterano:
-"Os caloiros têm pais?"
-
-Outro estudante:
-"Claro que têm."
-
-Veterano:
-"Hoje aprendemos todos qualquer coisa."
-
----
-
-3.
-"Tenho pressa."
-
-Veterano:
-"Nós também."
-
-Gabriel:
-"Então porque estão parados?"
-
-Veterano:
-"Estamos tradicionalmente parados."
-
----
-
-4.
-"Tchau."
-
-Fim.
-
----
-
-Se Gabriel tentar passar à força:
-
-Os estudantes fecham a passagem.
-
-Veterano:
-"Olha um caloiro corajoso."
-
----
-
-# Diálogo depois do saco (STATE_2)
-
-Ao aproximar-se:
-
-Todos ficam mais direitos.
-
-Veterano:
-"...Boa tarde, Doutor."
-
-Gabriel responde apenas com um pequeno aceno.
-
-Silêncio.
-
-O jogador recebe opções.
-
----
-
-Opção A
-
-"Boa tarde."
-
-Nada acontece.
-
-Os estudantes continuam à espera.
-
----
-
-Opção B
-
-"Podem continuar."
-
-Nada acontece.
-
----
-
-Opção C (CORRETA)
-
-Gabriel olha demoradamente para um dos estudantes.
-
-Depois diz:
-
-"...quem vos ensinou essa dobra?"
-
-Silêncio.
-
-Todos olham para as próprias capas.
-
-Veterano:
-"...como?"
-
-Gabriel:
-"Essa dobra."
-
-Outro estudante:
-"Que tem?"
-
-Gabriel abana lentamente a cabeça.
-
-Gabriel:
-"Não acredito."
-
----
-
-Novo conjunto de opções.
-
-A.
-"Está ao contrário."
-
-Resposta errada.
-
-Veterano:
-"Não está."
-
-Puzzle continua.
-
----
-
-B.
-"Está demasiado vincada."
-
-Resposta errada.
-
-Outro estudante:
-"Acho que não..."
-
-Puzzle continua.
-
----
-
-C. (CORRETA)
-
-"Vocês ainda usam essa dobra?"
-
-Silêncio.
-
-Um estudante olha para outro.
-
-"...porque?"
-
-Gabriel:
-"Esqueçam."
-
-Longa pausa.
-
-Gabriel:
-"Não devia ter dito nada."
-
----
-
-Os estudantes entram imediatamente em pânico.
-
-Praxista 1:
-"Eu disse que havia qualquer coisa!"
-
-Praxista 2:
-"Foi o Tiago que me ensinou!"
-
-Praxista 3:
-"O Tiago aprendeu em Economia!"
-
-Todos olham para o Tiago.
-
-Tiago:
-"...não sabia que isso era importante."
-
-Gabriel continua completamente sério.
-
-Sem nunca explicar.
-
-Veterano:
-"Rápido!"
-
-"Vamos reaprender isto antes que alguém veja!"
-
-Os cinco correm para fora do ecrã.
-
-STATE_3.
-
----
-
-# Após resolução
-
-Ao examinar a porta:
-
-Gabriel:
-"Parece que a tradição acabou de tirar um intervalo."
-
----
-
-Se voltar a falar com os estudantes mais tarde
-
-Eles continuam ao fundo do cenário, todos a tentar dobrar as capas de maneiras diferentes.
-
-Podem ouvir-se frases aleatórias:
-
-"Agora ficou pior."
-
-"Não, esta é a dobra de Aveiro."
-
-"Isso existe?"
-
-"Espero bem que não."
-
----
-
-# Notas de escrita
-
-- Em momento algum antes da resolução deve existir qualquer referência à "Dobra de Coimbra".
-- A expressão é completamente inventada por Gabriel.
-- Gabriel nunca explica o que é.
-- Os estudantes nunca admitem que não sabem do que ele está a falar.
-- O humor nasce do facto de todos fingirem perceber um conceito inexistente.
-- O saco do lixo nunca é comentado pelos estudantes. Nenhum deles repara que Gabriel está vestido com um saco do lixo.
-- Gabriel ganha apenas por falar com absoluta confiança.
+- Confirmar que cartazes e copos podem ser recolhidos uma única vez.
+- Confirmar que qualquer ordem dos dois itens enche o caixote.
+- Confirmar animação da funcionária e visibilidade de `oSacoLimpo`.
+- Confirmar os quatro loops de `VIEWGABRIELSACO`.
+- Confirmar que hotspot e objetos do caixote não criam alvos concorrentes na verb coin.
+- Testar escolhas erradas e repetição do diálogo dos praxistas.
+- Confirmar que o grupo deixa de ser clicável e que a Room 4 abre apenas no estado `3`.
+- Testar save/load nos estados `1`, `2` e `3`.

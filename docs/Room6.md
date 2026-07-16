@@ -1,590 +1,130 @@
-# Room6.md
-# Adventure Game – Room 5: A Pastelaria
+# Rooms 6 e 7 — Pastelaria Moinho Velho
 
-## Objetivo
+## Estado atual
 
-Gabriel vai levantar o bolo do seu 10.º aniversário.
+O episódio da pastelaria está implementado:
 
-Ao chegar descobre que o bolo ainda não está pronto.
+- Room 6: entrada/frontdesk e puzzle do disfarce (`room6.asc`).
+- Room 7: cozinha, cartaz grego, ampulhetas e bolos (`room7.asc` + `GlobalScript.asc`).
+- Dialogs: `dCartazGrego`, `dIntroducaoAmpulhetas`, `dAmpulhetas`, `dIntroducaoBolos` e `dEscolherBolo` em `Game.agf`.
+- Backgrounds: `Assets/pastelaria_entrada_room6.png` e `Assets/pastelaria_cozinha_room7.png`.
+- Personagens e objetos: `Sprites/Room6/`.
 
-Para o conseguir terá de:
+Gabriel chega com Luís depois do episódio da Universidade, mas o argumento da pastelaria concentra-se em obter o bolo de aniversário.
 
-1. Convencer a empregada de que é o novo ajudante de cozinha.
-2. Entrar na cozinha.
-3. Ajudar o chefe pasteleiro a medir exatamente 9 minutos de cozedura usando duas ampulhetas.
-4. Descobrir qual dos cinco bolos é o seu.
-5. Levar finalmente o bolo para casa.
+## Room 6 — entrada
 
----
+### Estado local
 
-# ROOM 6A – Entrada da Pastelaria
+- `introducaoVista`.
+- `bancoAlinhado`.
+- `temAvental`.
+- `temChapeu`.
+- `empregadaDeixouPassar`.
 
-## Cenário
+`EstaDisfarcado()` só devolve `true` quando Gabriel tem avental e chapéu. Estes elementos não entram no inventário: são flags de sala e feedback visual/narrativo.
 
-Pastelaria tradicional portuguesa.
+### Walkthrough
 
-Objetos visíveis:
+1. Interagir com `hBanco` para o alinhar debaixo do avental.
+2. Pegar/interagir com `hAvental` para o vestir.
+3. Pegar/interagir com `hChapeus` para colocar um chapéu.
+4. Falar com `cEmpregadaPastelaria` ou interagir com `hPortaCozinha`.
+5. A empregada aceita Gabriel como novo ajudante, `enteredKitchen` passa a `true` e o jogador muda para a Room 7.
 
-- Balcão
-- Montra
-- Porta para a cozinha
-- Cabide
-- Banco pequeno
-- Caixa com chapéus descartáveis
-- Alguns clientes
+Sem disfarce, a empregada bloqueia a cozinha. Depois de concluir a pastelaria, tentar entrar novamente dá apenas feedback.
 
-A porta da cozinha está atrás do balcão.
+### Alvos principais
 
----
+- `hBalcao`: comentários.
+- `hPortaCozinha`: chama `TentarEntrarNaCozinha()`.
+- `hBanco`: move/alinha o banco.
+- `hAvental`: exige o banco alinhado.
+- `hChapeus`: coloca o chapéu.
+- `hSaida`: bloqueada sem bolo; depois da conclusão muda atualmente para a Room 1.
+- `cEmpregadaPastelaria`: normal/speech view `11`, recolocada em `(650,455)` com scaling 90%.
 
-# Personagens
+## Room 7 — cozinha
 
-## Gabriel
+Ao carregar a sala, Gabriel muda para a view `14` (ajudante), `cPasteleiro` é colocado em `(90,550)` e os objetos recebem scaling manual. Os bolos e o livro ficam escondidos até resolver as ampulhetas.
 
-Protagonista.
+### Puzzle 1 — cartaz grego
 
----
+O pasteleiro pergunta pelo significado do cartaz. A resposta correta em `dCartazGrego` é:
 
-## Empregada
+> Que não entre quem não souber geometria.
 
-- Simpática.
-- Muito atarefada.
-- Acredita facilmente nas pessoas.
-- Nunca viu o novo aprendiz.
+As respostas erradas permitem tentar novamente. A correta define `cartazGregoResolvido` através de `dialog_request(73)` e desbloqueia o desafio seguinte.
 
----
+### Puzzle 2 — nove minutos
 
-# Objetos
+Estado global:
 
-## Cabide
+- `hourglassElapsed`.
+- `glass4Remaining`, `glass7Remaining`.
+- `glass4Running`, `glass7Running`.
+- `cakeInOven`.
+- `ampulhetasResolvidas`.
 
-Contém um avental.
+O tempo só avança quando o jogador escolhe esperar. Virar uma ampulheta que já corre inverte a areia restante (`duração - restante`). A cobertura entra no forno quando as duas ampulhetas estão a correr ao mesmo tempo.
 
-Está demasiado alto.
+Solução implementada:
 
----
+1. Virar a ampulheta de 4.
+2. Virar a ampulheta de 7; a cobertura entra no forno no minuto 0.
+3. Esperar até ao minuto 4.
+4. Virar a de 4.
+5. Esperar até ao minuto 7.
+6. Virar a de 7.
+7. Esperar até ao minuto 8.
+8. Virar a de 7, ficando 1 minuto por correr.
+9. Esperar até ao minuto 9.
+10. Tirar a cobertura.
 
-## Banco
+Retirar antes de 9 minutos não resolve. Ultrapassar 9 chama `BurnToppingAndRestart()`, faz fade e reinicia as ampulhetas. Resolver define `ampulhetasResolvidas`, revela bolos/livro e inicia `dIntroducaoBolos`.
 
-Pode ser empurrado.
+### Puzzle 3 — atribuição dos bolos
 
-Permite alcançar o avental.
+O livro apresenta nove pistas. Os bolos visíveis são:
 
----
+| Bolo | Forma | Sabor/cobertura | Decoração |
+|---|---|---|---|
+| A | redondo | chocolate | futebol |
+| B | quadrado | baunilha sem chocolate | flores |
+| C | retangular | morango com base de chocolate | cerejas |
+| D | hexagonal | caramelo com recheio de chocolate | estrelas |
+| E | oval | chocolate negro | oboé de açúcar |
 
-## Caixa de chapéus
+Solução única codificada:
 
-Contém chapéus descartáveis.
+| Bolo | Dono |
+|---|---|
+| A | Mariana |
+| B | Tiago |
+| C | Rita |
+| D | Gabriel |
+| E | Patrícia |
 
-Gabriel coloca um automaticamente.
+O jogador não escolhe apenas o bolo de Gabriel: ao falar com o pasteleiro, atribui os cinco bolos em sequência. Não há feedback intermédio. Se pelo menos uma resposta estiver errada, a lista inteira é apagada. A solução correta define `boloIdentificado`, `cakePuzzleSolved` e `pastelariaConcluida`, e adiciona `iBirthdayCake` uma única vez.
 
----
+### Objetos e hotspots
 
-## Porta da cozinha
+Objetos visuais configurados: `oCartazGrego`, `oAmpulheta4`, `oAmpulheta7`, `oLivroEncomendas`, `oBoloA`–`oBoloE`.
 
-Inicialmente fechada.
+O script ainda conserva hotspots equivalentes (`hCartazGrego`, `hAmpulhetas`, `hLivroEncomendas`, `hBoloA`–`hBoloE`) e alguns handlers de objetos delegam nesses hotspots. Esta arquitetura híbrida funciona como compatibilidade, mas requer teste de clique e pode ser simplificada depois.
 
----
+### Saída
 
-# Estado
+`hPortaLoja_Interact` só permite sair com `pastelariaConcluida == true`, restaura a view `2` e muda atualmente para a Room 2. Isto diverge da saída da Room 6, que regressa à Room 1, e deve ser decidido antes de fechar o episódio.
 
-```text
-hasApron = false
-hasHat = false
-isDisguised = false
+## Critérios de validação
 
-enteredKitchen = false
-```
-
----
-
-# Objetivo
-
-Entrar na cozinha.
-
----
-
-# Diálogo inicial
-
-Gabriel
-
-"Olá.
-
-Vim buscar o bolo do meu aniversário."
-
-Empregada
-
-"Ainda não está pronto."
-
-"O chefe ainda está a acabar as coberturas."
-
-Gabriel
-
-"Posso esperar?"
-
-Empregada
-
-"Se quiseres."
-
-Gabriel
-
-(examina a porta da cozinha)
-
----
-
-Se tentar entrar:
-
-Empregada
-
-"Clientes não entram."
-
----
-
-# Puzzle 1 – Disfarce
-
-O jogador deve:
-
-- mover o banco
-- subir ao banco
-- apanhar o avental
-- pegar num chapéu
-
-Quando ambos forem obtidos:
-
-```text
-isDisguised = true
-```
-
-Sprite muda automaticamente.
-
----
-
-# Novo diálogo
-
-Gabriel
-
-"Sou o novo ajudante."
-
-Empregada
-
-"Ah!"
-
-"És tu?"
-
-Gabriel
-
-"..."
-
-Empregada
-
-"O chefe disse que hoje vinha alguém novo."
-
-"Entra rapidamente.
-
-Ele está de péssimo humor."
-
-Abre a porta.
-
-Transição para a cozinha.
-
----
-
-# ROOM 6B – Cozinha
-
-## Cenário
-
-Grande cozinha industrial.
-
-Objetos:
-
-- Forno
-- Bancada
-- Livro de encomendas
-- Cinco bolos
-- Duas ampulhetas
-- Cartaz grego
-
----
-
-# Personagens
-
-## Chefe Pasteleiro
-
-Características
-
-- Obcecado por matemática.
-- Muito exigente.
-- Acredita que cozinhar é uma forma de geometria.
-
----
-
-# Objetos
-
-## Cartaz
-
-Texto:
-
-> Ἀγεωμέτρητος μηδεὶς εἰσίτω
-
-Se examinado:
-
-Gabriel
-
-"Parece grego..."
-
----
-
-# Diálogo inicial
-
-Pasteleiro
-
-"Tu deves ser o novo ajudante."
-
-"Antes de começares..."
-
-"Sabes o que diz o cartaz?"
-
----
-
-## Pergunta
-
-Opções
-
-❌
-
-"Entrada proibida."
-
----
-
-❌
-
-"Proibido fumar."
-
----
-
-❌
-
-"É o menu."
-
----
-
-✅
-
-"Que não entre quem não souber geometria."
-
----
-
-Pasteleiro
-
-"Exatamente."
-
-"A maioria entra sem reparar."
-
-Gabriel
-
-"Porque é que isso está numa cozinha?"
-
-Pasteleiro
-
-"Porque cozinhar é matemática."
-
----
-
-# Puzzle 2 – Ampulhetas
-
-## Situação
-
-Pasteleiro
-
-"A cobertura do teu bolo tem de cozer exatamente nove minutos."
-
-"O temporizador avariou."
-
-"Só tenho estas duas ampulhetas."
-
-Mostra:
-
-- ampulheta de 4 minutos
-- ampulheta de 7 minutos
-
----
-
-## Interface
-
-Todo o puzzle decorre por diálogo.
-
-O jogador pode repetir ações.
-
-As opções disponíveis são sempre:
-
-- Virar a ampulheta de 4 minutos
-- Virar a ampulheta de 7 minutos
-- Esperar
-- Tirar a cobertura do forno
-
----
-
-## Estado
-
-```text
-globalTime
-
-glass4Running
-glass7Running
-
-glass4Remaining
-glass7Remaining
-
-cakeInOven
-```
-
----
-
-## Início
-
-A primeira vez que ambas as ampulhetas ficam a correr:
-
-```text
-cakeInOven = true
-
-globalTime = 0
-```
-
-O chefe coloca automaticamente a cobertura no forno.
-
----
-
-## Esperar
-
-Sempre que o jogador escolhe "Esperar":
-
-O jogo avança até à próxima ampulheta terminar.
-
-O chefe anuncia sempre o estado.
-
-Exemplos:
-
-"Já passaram quatro minutos."
-
-"Já passaram sete minutos."
-
-"Já passaram oito minutos."
-
-Etc.
-
----
-
-## Tirar a cobertura
-
-Se
-
-```text
-globalTime < 9
-```
-
-Pasteleiro
-
-"Ainda está crua."
-
-Continua o puzzle.
-
----
-
-Se
-
-```text
-globalTime == 9
-```
-
-Pasteleiro
-
-"Perfeita."
-
-Puzzle resolvido.
-
----
-
-Se
-
-```text
-globalTime > 9
-```
-
-Pasteleiro
-
-"..."
-
-"Passou do ponto."
-
-"A cobertura ficou arruinada."
-
-Fade curto.
-
-Nova cobertura.
-
-O diálogo reinicia desde o início do puzzle.
-
-Todas as variáveis voltam ao estado inicial.
-
----
-
-# Puzzle 3 – Qual é o bolo?
-
-Pasteleiro
-
-"Agora há outro problema."
-
-"O meu ajudante misturou as etiquetas."
-
-"Não faço ideia de qual é o teu bolo."
-
-Existem cinco bolos.
-
-Cada um possui
-
-- forma
-- cobertura
-- decoração
-
----
-
-## Livro de encomendas
-
-Pode ser consultado.
-
-Contém apenas algumas características.
-
-Exemplo:
-
-Gabriel
-
-- oboé
-
-Patrícia
-
-- sem chocolate
-
-Tiago
-
-- futebol
-
-Mariana
-
-- flores
-
-Rita
-
-- estrelas
-
----
-
-## Pistas
-
-As pistas devem permitir dedução lógica.
-
-Exemplos:
-
-Cliente
-
-"O meu é o único sem chocolate."
-
----
-
-Pasteleiro
-
-"O bolo do futebol é redondo."
-
----
-
-Pasteleiro
-
-"Nunca faço bolos musicais em forma de coração."
-
----
-
-Livro
-
-"O bolo do Gabriel tem um oboé."
-
----
-
-Devem existir pistas suficientes para que apenas um bolo satisfaça todas as condições.
-
----
-
-## Escolha
-
-O jogador escolhe um dos cinco bolos.
-
----
-
-### Errado
-
-Pasteleiro
-
-"Esse quase de certeza que não é."
-
-O bolo regressa ao lugar.
-
----
-
-### Certo
-
-Pasteleiro
-
-"Claro!"
-
-"É esse."
-
-Coloca a cobertura acabada de fazer.
-
-Entrega o bolo.
-
----
-
-# Final
-
-Pasteleiro
-
-"Não és mau."
-
-Gabriel
-
-"Obrigado."
-
-Pasteleiro
-
-"Se continuares assim..."
-
-"...daqui a uns anos ainda acabas engenheiro."
-
-Gabriel sorri.
-
-Sai cuidadosamente da cozinha.
-
-Transição para a saída da pastelaria.
-
-Fade out.
-
----
-
-# Flags finais
-
-```text
-cakePuzzleSolved = true
-
-inventory += BirthdayCake
-
-RoomCompleted = true
-```
-
----
-
-# Notas de implementação
-
-- O puzzle das ampulhetas deve ser implementado como uma máquina de estados simples.
-- O tempo **nunca** avança continuamente; apenas quando o jogador escolhe "Esperar".
-- O chefe anuncia sempre quantos minutos passaram após cada espera, para que o jogador nunca tenha de memorizar o estado.
-- Se ultrapassar os 9 minutos, o puzzle reinicia imediatamente.
-- O puzzle dos bolos deve ser um verdadeiro puzzle de dedução, com solução única, idealmente usando 5 bolos × 4 propriedades (dono, forma, cobertura e decoração).
-- O tom deve ser leve, absurdo e próximo de *Monkey Island*: as personagens aceitam situações ridículas com toda a naturalidade.
+- Disfarce incompleto nunca abre a cozinha.
+- Cartaz correto desbloqueia ampulhetas; respostas erradas não bloqueiam repetição.
+- Estado das ampulhetas sobrevive a fechar/reabrir diálogo e save/load.
+- Cobertura crua, perfeita e queimada dão comportamentos distintos.
+- Bolos/livro aparecem apenas depois das ampulhetas.
+- Atribuição errada reinicia as cinco respostas.
+- Solução correta adiciona um único `iBirthdayCake`.
+- Objetos, hotspots, baselines e scaling ficam visualmente coerentes.
+- A view normal de Gabriel é restaurada ao sair.
