@@ -1081,7 +1081,7 @@
           <GUIMain>
             <NormalGUI>
               <BackgroundColor>0</BackgroundColor>
-              <BackgroundImage>2167</BackgroundImage>
+              <BackgroundImage>2152</BackgroundImage>
               <BorderColor>0</BorderColor>
               <Clickable>True</Clickable>
               <Height>470</Height>
@@ -1200,7 +1200,7 @@
           <GUIMain>
             <NormalGUI>
               <BackgroundColor>0</BackgroundColor>
-              <BackgroundImage>2167</BackgroundImage>
+              <BackgroundImage>2150</BackgroundImage>
               <BorderColor>0</BorderColor>
               <Clickable>True</Clickable>
               <Height>470</Height>
@@ -1261,25 +1261,25 @@
                 <ClipImage>False</ClipImage>
                 <Enabled>True</Enabled>
                 <Font>0</Font>
-                <Height>19</Height>
+                <Height>56</Height>
                 <ID>2</ID>
-                <Image>2160</Image>
+                <Image>2162</Image>
                 <Left>457</Left>
                 <Locked>False</Locked>
-                <MouseoverImage>2160</MouseoverImage>
+                <MouseoverImage>2162</MouseoverImage>
                 <Name>btnSaveGame</Name>
                 <NewModeNumber>0</NewModeNumber>
                 <OnClick>btnSaveGame_OnClick</OnClick>
-                <PushedImage>2161</PushedImage>
+                <PushedImage>2163</PushedImage>
                 <Text>Save</Text>
                 <TextAlignment>MiddleCenter</TextAlignment>
                 <TextColor>19248</TextColor>
                 <TextPaddingHorizontal>2</TextPaddingHorizontal>
                 <TextPaddingVertical>2</TextPaddingVertical>
-                <Top>246</Top>
+                <Top>249</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
-                <Width>71</Width>
+                <Width>177</Width>
                 <WrapText>False</WrapText>
                 <ZOrder>2</ZOrder>
               </GUIButton>
@@ -1365,7 +1365,7 @@
           </GUIMain>
           <GUIMain>
             <NormalGUI>
-              <BackgroundColor>0</BackgroundColor>
+              <BackgroundColor>52857</BackgroundColor>
               <BackgroundImage>0</BackgroundImage>
               <BorderColor>0</BorderColor>
               <Clickable>True</Clickable>
@@ -1378,7 +1378,7 @@
               <PopupYPos>0</PopupYPos>
               <ScriptModule>GlobalScript.asc</ScriptModule>
               <Top>84</Top>
-              <Transparency>0</Transparency>
+              <Transparency>10</Transparency>
               <Visible>False</Visible>
               <Width>647</Width>
               <ZOrder>0</ZOrder>
@@ -1662,7 +1662,7 @@
                 <Name>lblGamma</Name>
                 <Text>Gamma</Text>
                 <TextAlignment>TopCenter</TextAlignment>
-                <TextColor>19248</TextColor>
+                <TextColor>17201</TextColor>
                 <Top>284</Top>
                 <Translated>True</Translated>
                 <Visible>True</Visible>
@@ -2091,8 +2091,8 @@
               <InventoryItem>
                 <CursorImage>28</CursorImage>
                 <Description xml:space="preserve">Palheta de oboe</Description>
-                <HotspotX>6</HotspotX>
-                <HotspotY>26</HotspotY>
+                <HotspotX>5</HotspotX>
+                <HotspotY>28</HotspotY>
                 <ID>7</ID>
                 <Image>28</Image>
                 <Name>iReed</Name>
@@ -2452,7 +2452,7 @@
             <ID>2</ID>
             <Image>2042</Image>
             <Name>iKey</Name>
-            <PlayerStartsWithItem>True</PlayerStartsWithItem>
+            <PlayerStartsWithItem>False</PlayerStartsWithItem>
             <Properties />
             <Interactions>
               <ScriptModule>GlobalScript.asc</ScriptModule>
@@ -2722,7 +2722,7 @@
             <SpeechView>0</SpeechView>
             <StartX>750</StartX>
             <StartY>300</StartY>
-            <StartingRoom>20</StartingRoom>
+            <StartingRoom>1</StartingRoom>
             <ThinkingView>0</ThinkingView>
             <TurnBeforeWalking>True</TurnBeforeWalking>
             <TurnWhenFacing>True</TurnWhenFacing>
@@ -3652,8 +3652,8 @@ stop
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
         <AnimateOnlyWhenMoving>False</AnimateOnlyWhenMoving>
         <AnimationDelay>5</AnimationDelay>
-        <HotspotX>0</HotspotX>
-        <HotspotY>0</HotspotY>
+        <HotspotX>10</HotspotX>
+        <HotspotY>10</HotspotY>
         <ID>4</ID>
         <Image>17</Image>
         <Name xml:space="preserve">Use inv</Name>
@@ -4039,13 +4039,13 @@ stop
               <SpriteFolder Name="Verbs">
                 <SubFolders />
                 <Sprites>
-                  <Sprite Slot="2100" Width="30" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2100" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Verbs/btn_walk_normal.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>30</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -4055,13 +4055,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2101" Width="30" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2101" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Verbs/btn_walk_over.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>30</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -4071,13 +4071,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2102" Width="30" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2102" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Verbs/btn_walk_pressed.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>30</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -4103,13 +4103,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2104" Width="30" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2104" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Verbs/btn_look_normal.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>30</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -4119,13 +4119,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2105" Width="30" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2105" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Verbs/btn_look_over.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>30</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -4135,13 +4135,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2106" Width="30" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2106" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Verbs/btn_look_pressed.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>30</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5041,13 +5041,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2165" Width="99" Height="4" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2165" Width="396" Height="16" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Defaults/UI/slider_bar.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>4</ImportHeight>
-                      <ImportWidth>99</ImportWidth>
+                      <ImportHeight>16</ImportHeight>
+                      <ImportWidth>396</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5057,13 +5057,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2166" Width="9" Height="11" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2166" Width="36" Height="44" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Defaults/UI/slider_handle.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>11</ImportHeight>
-                      <ImportWidth>9</ImportWidth>
+                      <ImportHeight>44</ImportHeight>
+                      <ImportWidth>36</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5073,13 +5073,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2167" Width="259" Height="157" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2167" Width="1036" Height="628" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Defaults/UI/background_saverestore.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>157</ImportHeight>
-                      <ImportWidth>259</ImportWidth>
+                      <ImportHeight>628</ImportHeight>
+                      <ImportWidth>1036</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5089,13 +5089,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2168" Width="205" Height="65" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2168" Width="820" Height="260" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Defaults/UI/background_modal_yesno.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>65</ImportHeight>
-                      <ImportWidth>205</ImportWidth>
+                      <ImportHeight>260</ImportHeight>
+                      <ImportWidth>820</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5105,13 +5105,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2169" Width="223" Height="133" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2169" Width="892" Height="532" ColorDepth="32" Resolution="Real" AlphaChannel="True">
                     <Source>
                       <FileName>Sprites/Defaults/UI/background_inventory.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>133</ImportHeight>
-                      <ImportWidth>223</ImportWidth>
+                      <ImportHeight>532</ImportHeight>
+                      <ImportWidth>892</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5126,13 +5126,13 @@ stop
               <SpriteFolder Name="Cursors">
                 <SubFolders />
                 <Sprites>
-                  <Sprite Slot="2054" Width="27" Height="24" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2054" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Cursors/cursor_walk.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>24</ImportHeight>
-                      <ImportWidth>27</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5142,13 +5142,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2055" Width="14" Height="22" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2055" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Cursors/cursor_wait.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>22</ImportHeight>
-                      <ImportWidth>14</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5158,13 +5158,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2056" Width="26" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2056" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Cursors/cursor_look.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>26</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5174,13 +5174,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2057" Width="19" Height="28" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2057" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Cursors/cursor_interact.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>28</ImportHeight>
-                      <ImportWidth>19</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5190,13 +5190,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2058" Width="28" Height="27" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2058" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Cursors/cursor_talk.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>27</ImportHeight>
-                      <ImportWidth>28</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
@@ -5222,13 +5222,13 @@ stop
                       <ImportAlphaChannel>True</ImportAlphaChannel>
                     </Source>
                   </Sprite>
-                  <Sprite Slot="2060" Width="16" Height="16" ColorDepth="32" Resolution="Real" AlphaChannel="True">
+                  <Sprite Slot="2060" Width="1024" Height="1024" ColorDepth="32" Resolution="Real" AlphaChannel="False">
                     <Source>
                       <FileName>Sprites/Defaults/Cursors/cursor_x.png</FileName>
                       <OffsetX>0</OffsetX>
                       <OffsetY>0</OffsetY>
-                      <ImportHeight>16</ImportHeight>
-                      <ImportWidth>16</ImportWidth>
+                      <ImportHeight>1024</ImportHeight>
+                      <ImportWidth>1024</ImportWidth>
                       <ImportAsTile>False</ImportAsTile>
                       <Frame>0</Frame>
                       <RemapToGamePalette>False</RemapToGamePalette>
