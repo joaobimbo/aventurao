@@ -115,7 +115,7 @@ O script ainda conserva hotspots equivalentes (`hCartazGrego`, `hAmpulhetas`, `h
 
 ### Saída
 
-`hPortaLoja_Interact` só permite sair com `pastelariaConcluida == true`, restaura a view `2` e muda atualmente para a Room 2. Isto diverge da saída da Room 6, que regressa à Room 1, e deve ser decidido antes de fechar o episódio.
+`hPortaLoja_Interact` só permite sair com `pastelariaConcluida == true`, restaura a view `2` e muda atualmente para a Room 2. A saída da Room 6 regressa à Room 1. Ambas são rotas antigas: para o lançamento, a conclusão deve encaminhar Gabriel para a festa da Room 20 e impedir estes regressos.
 
 ## Critérios de validação
 
