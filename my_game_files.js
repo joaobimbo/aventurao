@@ -1,0 +1,1 @@
+var gamefiles = ['audio.vox', 'aventurao.ags', 'acsetup.cfg'];
