@@ -4,16 +4,16 @@ Checklist manual para preparar uma versão de lançamento. O percurso atual come
 
 ## Bloqueadores de lançamento
 
-- [ ] **Atualizar os sprites do Luís:** usar **File → Restore all sprites from sources**, confirmar as views 9 (andar) e 10 (falar) em todas as direções e recompilar. Os PNG em `Sprites/Luis/` já têm o visual novo.
-- [ ] **Ligar o final:** depois de receber `iBirthdayCake` na Room 7, encaminhar Gabriel para a Room 20, restaurar a view normal antes da mudança de sala e impedir os regressos atuais à Room 1/Room 2.
+- [x] **Atualizar os sprites do Luís:** usar **File → Restore all sprites from sources**, confirmar as views 9 (andar) e 10 (falar) em todas as direções e recompilar. Os PNG em `Sprites/Luis/` já têm o visual novo.
+- [x] **Ligar o final:** depois de receber `iBirthdayCake` na Room 7, encaminhar Gabriel para a Room 20, restaurar a view normal antes da mudança de sala e impedir os regressos atuais à Room 1/Room 2.
 - [ ] **Corrigir a sequência de diálogos da Room 7:** não iniciar `dIntroducaoAmpulhetas` e `dAmpulhetas` no mesmo evento; não parar `dAmpulhetas` e iniciar `dIntroducaoBolos` dentro do mesmo callback de diálogo. Testar as transições em jogo.
-- [ ] **Corrigir o aviso da Room 1:** mover o `player.Walk(..., eBlock, ...)` de `room_Load()` (Before fade-in) para After fade-in, ou torná-lo não bloqueante. A compilação deve terminar sem avisos.
-- [ ] **Desativar Debug mode** em General Settings antes do build final.
+- [X] **Corrigir o aviso da Room 1:** mover o `player.Walk(..., eBlock, ...)` de `room_Load()` (Before fade-in) para After fade-in, ou torná-lo não bloqueante. A compilação deve terminar sem avisos.
+- [X] **Desativar Debug mode** em General Settings antes do build final.
 - [ ] **Fechar a Room 20:** garantir que o bolo está visível, que Gabriel entra com a view normal e criar um final claro (créditos, voltar ao menu ou sair). A canção não deve repetir após save/load ou reentrada.
 
 ## Continuidade visual e estado
 
-- [ ] Ao sair da Room 3, retirar a view do saco do lixo e confirmar as quatro direções da view normal de Gabriel.
+- [X] Ao sair da Room 3, retirar a view do saco do lixo e confirmar as quatro direções da view normal de Gabriel.
 - [ ] Na Room 6, dar feedback visual ao vestir avental e chapéu; confirmar que a view 14 só é usada como ajudante na cozinha e que a view normal regressa no final.
 - [ ] Rever a viagem de Luís da Room 4 para a Room 6. Há dois caminhos de conclusão e estado `comPai` duplicado; Luís não deve desaparecer, duplicar-se ou ficar na Universidade.
 - [ ] Alterar o `RealName` de `cVania` de `New character` para `Vânia` e confirmar view, posição, baseline e direção na Room 2.
